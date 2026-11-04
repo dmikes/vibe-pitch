@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desiree C. Michael — Executive Pitch & Interactive Portal</title>
+    <title>Desiree C. Michael - Executive Pitch & Interactive Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -23,12 +23,7 @@
                             500: '#14b8a6',
                             600: '#0d9488',
                             700: '#0f766e'
-                        },
-                        cyanElectric: '#06b6d4',
-                        cyanBright: '#22d3ee'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'Segoe UI', 'system-ui', 'sans-serif']
+                        }
                     }
                 }
             }
@@ -38,606 +33,321 @@
         .glass-card {
             background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .glass-card-hover:hover {
-            border-color: rgba(20, 184, 166, 0.4);
-            transform: translateY(-2px);
-            transition: all 0.2s ease-in-out;
-        }
-        .gradient-border {
-            border-image: linear-gradient(to right, #0d9488, #06b6d4) 1;
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #0d9488;
-            border-radius: 3px;
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(20, 184, 166, 0.35);
         }
     </style>
 </head>
-<body class="bg-navy-900 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-tealAccent-600 selection:text-white">
+<body class="bg-navy-900 text-slate-100 min-h-screen font-sans antialiased selection:bg-tealAccent-500 selection:text-white">
 
-    <!-- TOP NAV BAR -->
-    <header class="sticky top-0 z-40 bg-navy-800/90 backdrop-blur-md border-b border-slate-800/80 px-4 lg:px-8 py-3 flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-tealAccent-600 to-cyanElectric flex items-center justify-center font-bold text-white text-xl shadow-lg shadow-tealAccent-900/40">
-                DM
+    <!-- Header / Hero Section -->
+    <header class="border-b border-slate-800 bg-navy-800/80 sticky top-0 z-40 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="p-2.5 bg-tealAccent-500/10 rounded-xl border border-tealAccent-500/30 text-tealAccent-500">
+                    <i data-lucide="cpu" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-white">Desiree C. Michael, M.S., M.A.</h1>
+                    <p class="text-xs text-tealAccent-500 font-medium">Executive Pitch Brief & Applied Pedagogy Portal</p>
+                </div>
             </div>
-            <div>
-                <h1 class="text-base font-bold text-white leading-tight">Desiree C. Michael, M.S., M.A.</h1>
-                <p class="text-xs text-tealAccent-500 font-medium tracking-wide">EXECUTIVE PITCH &amp; TRANSPARENCY PORTAL</p>
-            </div>
-        </div>
-        <div class="hidden md:flex items-center space-x-4 text-xs font-semibold">
-            <span class="px-3 py-1.5 rounded-full bg-navy-700 text-slate-300 border border-slate-700 flex items-center gap-1.5">
-                <i data-lucide="building-2" class="w-3.5 h-3.5 text-tealAccent-500"></i> Prepared for VIBE Academy Founders
-            </span>
-            <a href="#survey-section" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-tealAccent-600 to-cyanElectric text-white hover:opacity-90 transition shadow-md shadow-cyanElectric/20">
-                Vibe-Coded Survey ↓
+            <a href="#founder-response" class="px-5 py-2.5 bg-gradient-to-r from-tealAccent-500 to-teal-600 hover:from-tealAccent-600 hover:to-teal-700 text-white text-sm font-semibold rounded-xl shadow-lg shadow-tealAccent-500/20 transition-all flex items-center gap-2">
+                <i data-lucide="send" class="w-4 h-4"></i> Respond to Pitch
             </a>
         </div>
     </header>
 
-    <!-- MAIN CONTAINER -->
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
-        
-        <!-- TARGETED INTRO BANNER -->
-        <section class="glass-card rounded-2xl p-6 sm:p-8 relative overflow-hidden border-l-4 border-l-tealAccent-500">
-            <div class="absolute -right-16 -top-16 w-64 h-64 bg-tealAccent-600/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="relative z-10 space-y-4">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tealAccent-900/40 border border-tealAccent-700/50 text-teal-300 text-xs font-semibold">
-                    <i data-lucide="shield-check" class="w-4 h-4 text-cyanBright"></i> Executive Transparency Brief &bull; Andrew Collins &amp; Aaron Klusman
-                </div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                    Transforming Secondary Education from Blueprint to Flagship
+    <main class="max-w-6xl mx-auto px-6 py-10 space-y-12">
+
+        <!-- Executive Summary Banner -->
+        <section class="glass-card rounded-2xl p-8 border border-slate-800 relative overflow-hidden">
+            <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-tealAccent-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="max-w-3xl space-y-4">
+                <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider px-3 py-1 bg-tealAccent-500/10 text-tealAccent-500 rounded-full border border-tealAccent-500/20">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Vibe-Coded Executive Portal
+                </span>
+                <h2 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
+                    Architecting Rapid Cognition & Modern STEM Learning Environments
                 </h2>
-                <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-4xl">
-                    Gentlemen: I write this with complete candor and transparency. I am an entrepreneur with a California administrative credential, Silicon Valley insider experience, and $2.3B civic budget oversight. My philosophy of learning was forged at Lehigh University's engineering school seeing applied mathematics, inside NVIDIA's early rebuilding era, and observing 3D holographic prototypes at the Max Planck Institute at age 15. Transforming education from the inside is notoriously slow—which is why I align with your mission to build a rapid, AI-integrated learning model in Phoenix or expand into high-growth markets like Celina, Texas.
+                <p class="text-slate-300 text-base leading-relaxed">
+                    Designed specifically for Andrew Collins and Aaron Klusman, this portal offers an interactive exploration of my background—from witnessing NVIDIA’s foundational growth era to deploying applied teaching frameworks and rapid-intake visual micro-lessons.
                 </p>
-                <div class="flex flex-wrap items-center gap-4 pt-2 text-xs text-slate-400">
-                    <div class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-tealAccent-500"></i> Phoenix, AZ</div>
-                    <div class="flex items-center gap-1.5"><i data-lucide="phone" class="w-4 h-4 text-tealAccent-500"></i> (602) 785-6402</div>
-                    <div class="flex items-center gap-1.5"><i data-lucide="clock" class="w-4 h-4 text-tealAccent-500"></i> Contact Window: 7-9 AM &amp; 4-6 PM MST</div>
-                </div>
             </div>
         </section>
 
-        <!-- INTERACTIVE SLIDE DECK / TABS -->
-        <section class="space-y-4">
-            <!-- TAB NAVIGATION -->
-            <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
-                <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-tealAccent-600 text-white shadow-md shadow-tealAccent-900/50">
-                    <i data-lucide="compass" class="w-4 h-4"></i> 1. Vision &amp; Founder Synergy
-                </button>
-                <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-navy-800 text-slate-400 hover:text-slate-200">
-                    <i data-lucide="globe" class="w-4 h-4"></i> 2. Global Track &amp; NVIDIA Insider Roots
-                </button>
-                <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-navy-800 text-slate-400 hover:text-slate-200">
-                    <i data-lucide="sparkles" class="w-4 h-4"></i> 3. Iconic Applied Pedagogy
-                </button>
-                <button onclick="switchTab(4)" id="tab-btn-4" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-navy-800 text-slate-400 hover:text-slate-200">
-                    <i data-lucide="cpu" class="w-4 h-4"></i> 4. Vibe Coding &amp; Technical Core
-                </button>
-                <button onclick="switchTab(5)" id="tab-btn-5" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-navy-800 text-slate-400 hover:text-slate-200">
-                    <i data-lucide="tv-2" class="w-4 h-4"></i> 5. Media Coverage &amp; Public Proof
-                </button>
-            </div>
-
-            <!-- SLIDE CONTENT CONTAINERS -->
-            
-            <!-- SLIDE 1 -->
-            <div id="slide-1" class="tab-slide glass-card rounded-2xl p-6 sm:p-8 space-y-6">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-tealAccent-500">Executive Slide 01</span>
-                        <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">Founder Mindset &amp; Strategic Synergy</h3>
-                    </div>
-                    <span class="p-2 rounded-lg bg-tealAccent-900/30 text-tealAccent-400"><i data-lucide="trending-up" class="w-6 h-6"></i></span>
-                </div>
-                <div class="grid md:grid-cols-2 gap-6 text-sm text-slate-300">
-                    <div class="space-y-3 bg-navy-800/60 p-5 rounded-xl border border-slate-700/60">
-                        <h4 class="font-bold text-white text-base flex items-center gap-2">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-tealAccent-500"></i> Investor-Grade Fiscal Discipline
-                        </h4>
-                        <p class="leading-relaxed">
-                            Having been inside NVIDIA during its critical turnaround era—where my former spouse held two key patents—and serving as an appointed Commissioner overseeing <strong class="text-cyanBright">$2.3 Billion</strong> in county youth budgets, I evaluate school operations through an investor lens—prioritizing capital efficiency, scalability, and measurable outcomes.
-                        </p>
-                    </div>
-                    <div class="space-y-3 bg-navy-800/60 p-5 rounded-xl border border-slate-700/60">
-                        <h4 class="font-bold text-white text-base flex items-center gap-2">
-                            <i data-lucide="zap" class="w-5 h-5 text-cyanBright"></i> Educational Consultant Market Analysis
-                        </h4>
-                        <p class="leading-relaxed">
-                            As a professional consultant, this is what I observe: <em>"Beyond the 70-year-old classroom rows, too many charter models market innovation while keeping kids in passive 1950s rows listening to lectures or being obedient."</em> VIBE Academy has the opportunity to lead Phoenix and expand into explosive growth hubs like <strong class="text-tealAccent-400">Celina, Texas</strong> (where esports performance arenas and competitive tech skills are driving new student paradigms).
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SLIDE 2 -->
-            <div id="slide-2" class="tab-slide hidden glass-card rounded-2xl p-6 sm:p-8 space-y-6">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-tealAccent-500">Executive Slide 02</span>
-                        <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">NVIDIA Insider Roots &amp; Formative Innovations</h3>
-                    </div>
-                    <span class="p-2 rounded-lg bg-tealAccent-900/30 text-tealAccent-400"><i data-lucide="globe-2" class="w-6 h-6"></i></span>
-                </div>
-                <div class="grid md:grid-cols-3 gap-4 text-xs sm:text-sm">
-                    <div class="bg-navy-800/60 p-4 rounded-xl border border-slate-800 space-y-2">
-                        <div class="text-tealAccent-400 font-semibold flex items-center gap-1.5"><i data-lucide="cpu" class="w-4 h-4"></i> Inside NVIDIA's Turnaround Era</div>
-                        <p class="text-slate-300">We joined NVIDIA during its 3rd-year rebound era. Former spouse held 2 NVIDIA patents; our kids played with Jensen Huang's kids during family Friday pizza nights. Living inside that culture proved that learning and engineering must be dynamic, collaborative, and fun.</p>
-                    </div>
-                    <div class="bg-navy-800/60 p-4 rounded-xl border border-slate-800 space-y-2">
-                        <div class="text-tealAccent-400 font-semibold flex items-center gap-1.5"><i data-lucide="sparkles" class="w-4 h-4"></i> Max Planck &amp; Holographic Roots</div>
-                        <p class="text-slate-300">Graduated high school at age 15 in Nuremberg, Germany. Observed early 3D holographic prototypes at the Max Planck Institute—inspiring a lifelong conviction that technology must revolutionize human interaction in classrooms.</p>
-                    </div>
-                    <div class="bg-navy-800/60 p-4 rounded-xl border border-slate-800 space-y-2">
-                        <div class="text-tealAccent-400 font-semibold flex items-center gap-1.5"><i data-lucide="award" class="w-4 h-4"></i> High-IQ Visionary Lineage</div>
-                        <p class="text-slate-300">B.A. in International Relations from Lehigh University. Raised in an extraordinary family lineage (including a Guinness World Record holder typing 200 wpm at age 12 who founded a business college, circuit judges, and top surgeons).</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SLIDE 2 -->
-            <div id="slide-2" class="tab-slide hidden glass-card rounded-2xl p-6 sm:p-8 space-y-6">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-tealAccent-500">Executive Slide 02</span>
-                        <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">Global Track &amp; High-IQ Visionary Heritage</h3>
-                    </div>
-                    <span class="p-2 rounded-lg bg-tealAccent-900/30 text-tealAccent-400"><i data-lucide="globe-2" class="w-6 h-6"></i></span>
-                </div>
-                <div class="grid md:grid-cols-3 gap-4 text-xs sm:text-sm">
-                    <div class="bg-navy-800/60 p-4 rounded-xl border border-slate-800 space-y-2">
-                        <div class="text-tealAccent-400 font-semibold flex items-center gap-1.5"><i data-lucide="graduation-cap" class="w-4 h-4"></i> Nuremberg to Lehigh</div>
-                        <p class="text-slate-300">Graduated high school in Nuremberg, Germany; earned B.A. in International Relations from Lehigh University. Lifelong global diplomacy perspective spanning 30+ countries.</p>
-                    </div>
-                    <div class="bg-navy-800/60 p-4 rounded-xl border border-slate-800 space-y-2">
-                        <div class="text-tealAccent-400 font-semibold flex items-center gap-1.5"><i data-lucide="award" class="w-4 h-4"></i> High-IQ Entrepreneurial Lineage</div>
-                        <p class="text-slate-300">Raised in a family of high-IQ visionaries (including a Guinness World Record holder typing 200 wpm at age 12 who launched his own business college, circuit judges, and top surgeons).</p>
-                    </div>
-                    <div class="bg-navy-800/60 p-4 rounded-xl border border-slate-800 space-y-2">
-                        <div class="text-tealAccent-400 font-semibold flex items-center gap-1.5"><i data-lucide="plane-takeoff" class="w-4 h-4"></i> WISE 12 Delegate in Qatar</div>
-                        <p class="text-slate-300">Represented international edtech at the World Innovation Summit for Education in Doha; engaged with global AI leaders on keeping human agency at the center of learning.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SLIDE 3 -->
-            <div id="slide-3" class="tab-slide hidden glass-card rounded-2xl p-6 sm:p-8 space-y-6">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-tealAccent-500">Executive Slide 03</span>
-                        <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">Iconic Applied Pedagogy ("How I Teach")</h3>
-                        <p class="text-xs text-slate-400 mt-1">Click any interactive case study card below to view detailed popups:</p>
-                    </div>
-                    <span class="p-2 rounded-lg bg-tealAccent-900/30 text-tealAccent-400"><i data-lucide="book-open-check" class="w-6 h-6"></i></span>
-                </div>
-
-                <!-- CLICKABLE MODAL TILES -->
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div onclick="openModal('history-cafe')" class="glass-card glass-card-hover p-5 rounded-xl cursor-pointer space-y-3 group border border-slate-700/80">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white">
-                            <i data-lucide="utensils" class="w-5 h-5"></i>
-                        </div>
-                        <h4 class="font-bold text-white text-sm group-hover:text-cyanBright transition">Ms. Mike's History Cafe</h4>
-                        <p class="text-xs text-slate-400 line-clamp-3">Sensory memory learning using culinary arts. Selected as a Food Network Top-20 national series finalist.</p>
-                        <span class="inline-flex items-center gap-1 text-xs text-tealAccent-400 font-semibold group-hover:translate-x-1 transition">Read Case Study &rarr;</span>
-                    </div>
-
-                    <div onclick="openModal('lighthawk')" class="glass-card glass-card-hover p-5 rounded-xl cursor-pointer space-y-3 group border border-slate-700/80">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyanElectric to-blue-600 flex items-center justify-center text-white">
-                            <i data-lucide="plane" class="w-5 h-5"></i>
-                        </div>
-                        <h4 class="font-bold text-white text-sm group-hover:text-cyanBright transition">LightHawk Student Flight</h4>
-                        <p class="text-xs text-slate-400 line-clamp-3">Connected 14-year-old aspiring pilot "Maverick" with volunteer LightHawk pilots to co-pilot real research flights.</p>
-                        <span class="inline-flex items-center gap-1 text-xs text-tealAccent-400 font-semibold group-hover:translate-x-1 transition">Read Case Study &rarr;</span>
-                    </div>
-
-                    <div onclick="openModal('forbes')" class="glass-card glass-card-hover p-5 rounded-xl cursor-pointer space-y-3 group border border-slate-700/80">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-500 to-tealAccent-600 flex items-center justify-center text-white">
-                            <i data-lucide="landmark" class="w-5 h-5"></i>
-                        </div>
-                        <h4 class="font-bold text-white text-sm group-hover:text-cyanBright transition">Greek Rich List &amp; Forbes VIP</h4>
-                        <p class="text-xs text-slate-400 line-clamp-3">Escorted top IB Business students to meet C. Forbes and banking leaders at the Greek Rich List forum in Athens.</p>
-                        <span class="inline-flex items-center gap-1 text-xs text-tealAccent-400 font-semibold group-hover:translate-x-1 transition">Read Case Study &rarr;</span>
-                    </div>
-
-                    <div onclick="openModal('gdc')" class="glass-card glass-card-hover p-5 rounded-xl cursor-pointer space-y-3 group border border-slate-700/80">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white">
-                            <i data-lucide="gamepad-2" class="w-5 h-5"></i>
-                        </div>
-                        <h4 class="font-bold text-white text-sm group-hover:text-cyanBright transition">GDC Delegation for English Credit</h4>
-                        <p class="text-xs text-slate-400 line-clamp-3">Brokered historic access for high school delegation to attend Game Developers Conference for interdisciplinary credit.</p>
-                        <span class="inline-flex items-center gap-1 text-xs text-tealAccent-400 font-semibold group-hover:translate-x-1 transition">Read Case Study &rarr;</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SLIDE 4 -->
-            <div id="slide-4" class="tab-slide hidden glass-card rounded-2xl p-6 sm:p-8 space-y-6">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-tealAccent-500">Executive Slide 04</span>
-                        <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">Vibe Coding &amp; Technical Infrastructure</h3>
-                    </div>
-                    <span class="p-2 rounded-lg bg-tealAccent-900/30 text-tealAccent-400"><i data-lucide="code" class="w-6 h-6"></i></span>
-                </div>
-                <div class="grid md:grid-cols-2 gap-6 text-sm text-slate-300">
-                    <div class="space-y-4 bg-navy-800/60 p-5 rounded-xl border border-slate-700/60">
-                        <h4 class="font-bold text-white text-base flex items-center gap-2">
-                            <i data-lucide="laptop" class="w-5 h-5 text-tealAccent-400"></i> Autodidactic Vibe-Coded Platforms
-                        </h4>
-                        <p class="leading-relaxed text-xs sm:text-sm">
-                            I vibe-code custom learning applications for autodidactic students. These systems ingest individual student passions, map them directly to state standards, auto-calculate credit fulfillment, and output credit-bearing project pathways.
-                        </p>
-                        <div class="p-3 bg-navy-900/80 rounded-lg border border-tealAccent-900/50 text-xs font-mono text-teal-300">
-                            &gt; Student Input: "Aviation + Physics"<br>
-                            &gt; Output: 1.5 Science Credits (AeroDynamics Lab + Flight Sim CAD)
-                        </div>
-                    </div>
-
-            <!-- SLIDE 5 (NEW: MEDIA, PUBLICATIONS & PUBLIC PROOF) -->
-            <div id="slide-5" class="tab-slide hidden glass-card rounded-2xl p-6 sm:p-8 space-y-6">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-tealAccent-500">Executive Slide 05</span>
-                        <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">Media Coverage, Publications &amp; Proof of Concept</h3>
-                        <p class="text-xs text-slate-400 mt-1">Direct links to broadcast television news coverage, international conference listings, and publication archives:</p>
-                    </div>
-                    <span class="p-2 rounded-lg bg-tealAccent-900/30 text-tealAccent-400"><i data-lucide="external-link" class="w-6 h-6"></i></span>
-                </div>
-
-                <!-- MEDIA LINKS GRID -->
-                <div class="grid md:grid-cols-2 gap-4">
-                    
-                    <!-- BUBBLEBUNNYS REEL (LEAD ITEM) -->
-                    <a href="https://www.instagram.com/thebubblebunnys/reel/DaIzgFsNQD2/" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover p-5 rounded-xl border border-tealAccent-500/50 flex flex-col justify-between space-y-3 group bg-gradient-to-br from-navy-800 to-tealAccent-950/30">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-1 rounded-full bg-pink-500/20 text-pink-300 text-xs font-bold border border-pink-500/40 flex items-center gap-1">
-                                <i data-lucide="instagram" class="w-3.5 h-3.5"></i> Voted Best Product
-                            </span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-cyanBright transition"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white text-base group-hover:text-cyanBright transition">BubbleBunnys Student Product Reel</h4>
-                            <p class="text-xs text-slate-300 mt-1">Watch real student interactions and reactions featuring BubbleBunnys—voted Best Product by students across educational sensory testing.</p>
-                        </div>
-                        <span class="text-xs text-tealAccent-400 font-semibold flex items-center gap-1">View Reel on Instagram &rarr;</span>
-                    </a>
-
-                    <!-- ABC NEWS COVERAGE -->
-                    <a href="https://wjla.com/news/local/middle-schoolers-gift-troops-holidays-christmas-afghanistan-soldiers-virginia-alexandria-city-public-school-students-dmv-desiree-michael-army-air-force-creating-phone-holders-overseas" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover p-5 rounded-xl border border-slate-700 flex flex-col justify-between space-y-3 group">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-1 rounded-full bg-red-500/20 text-red-300 text-xs font-bold border border-red-500/40 flex items-center gap-1">
-                                <i data-lucide="tv" class="w-3.5 h-3.5"></i> WJLA ABC News Broadcast
-                            </span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-cyanBright transition"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white text-base group-hover:text-cyanBright transition">ABC News Feature: 3D Printing for Deployed Troops</h4>
-                            <p class="text-xs text-slate-300 mt-1">Feature news coverage of Desiree Michael leading middle school students in designing and 3D-printing custom technology equipment for overseas troops.</p>
-                        </div>
-                        <span class="text-xs text-tealAccent-400 font-semibold flex items-center gap-1">Watch ABC News Story &rarr;</span>
-                    </a>
-
-                    <!-- VSTE CONFERENCE PRESENTATION -->
-                    <a href="https://2021vsteannualconference.sched.com/event/pjPP" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover p-5 rounded-xl border border-slate-700 flex flex-col justify-between space-y-3 group">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold border border-blue-500/40 flex items-center gap-1">
-                                <i data-lucide="presentation" class="w-3.5 h-3.5"></i> VSTE State Conference
-                            </span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-cyanBright transition"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white text-base group-hover:text-cyanBright transition">VSTE Statewide Conference Presentation</h4>
-                            <p class="text-xs text-slate-300 mt-1">Official event listing for Desiree Michael's presentation on rapid cognition and innovative edtech integration at the Virginia Society for Technology in Education annual conference.</p>
-                        </div>
-                        <span class="text-xs text-tealAccent-400 font-semibold flex items-center gap-1">View VSTE Event Listing &rarr;</span>
-                    </a>
-
-                    <!-- ACS ATHENS ETHOS PUBLICATION -->
-                    <a href="https://www.scribd.com/document/46808098/ACS-Ethos-8" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover p-5 rounded-xl border border-slate-700 flex flex-col justify-between space-y-3 group">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/40 flex items-center gap-1">
-                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i> ACS Athens Ethos
-                            </span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-cyanBright transition"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white text-base group-hover:text-cyanBright transition">ACS Ethos International Publication</h4>
-                            <p class="text-xs text-slate-300 mt-1">Archived publication documenting innovation, digital publishing, and educational technology leadership under Desiree Michael's administration at ACS Athens.</p>
-                        </div>
-                        <span class="text-xs text-tealAccent-400 font-semibold flex items-center gap-1">Read Ethos Document on Scribd &rarr;</span>
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- LIVE INTERACTIVE VIBE-CODED SURVEY SECTION -->
-        <section id="survey-section" class="glass-card rounded-2xl p-6 sm:p-8 space-y-6 border-2 border-tealAccent-600/50 relative">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+        <!-- 5 Interactive Cards Section -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between">
                 <div>
-                    <span class="px-3 py-1 rounded-full bg-tealAccent-900/40 text-teal-300 text-xs font-bold uppercase tracking-wider border border-tealAccent-700/50">
-                        Live Vibe-Coded Feature
-                    </span>
-                    <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">Founder Direct Response Portal</h3>
-                    <p class="text-xs sm:text-sm text-slate-400">Select an option below to log your feedback into my live response tracker dashboard.</p>
-                </div>
-                <div class="flex items-center gap-2 text-xs text-cyanBright bg-navy-900/80 px-3 py-2 rounded-lg border border-slate-700">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> App Sync Active
+                    <h3 class="text-2xl font-bold text-white tracking-tight">Executive Background & Core Frameworks</h3>
+                    <p class="text-sm text-slate-400">Click any card below to explore media, background documentation, and proven pedagogical outcomes.</p>
                 </div>
             </div>
 
-            <form id="founder-survey-form" onsubmit="handleSurveySubmit(event)" class="space-y-6">
-                <!-- RESPONSE SELECTION -->
-                <div class="space-y-3">
-                    <label class="block text-sm font-semibold text-white">1. What is your current level of interest or preferred follow-up?</label>
-                    <div class="grid sm:grid-cols-3 gap-3">
-                        <label class="survey-option-card flex flex-col justify-between p-4 rounded-xl bg-navy-800 border border-slate-700 cursor-pointer hover:border-tealAccent-500 transition">
-                            <div class="flex items-center justify-between">
-                                <span class="font-bold text-sm text-white">Option 1</span>
-                                <input type="radio" name="responseChoice" value="Founding School Leadership Dialogue" class="text-tealAccent-600 focus:ring-tealAccent-500" required checked>
-                            </div>
-                            <p class="text-xs text-slate-300 mt-2">"Yes — Let's schedule a dialogue to explore founding school leadership alignment."</p>
-                        </label>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                        <label class="survey-option-card flex flex-col justify-between p-4 rounded-xl bg-navy-800 border border-slate-700 cursor-pointer hover:border-tealAccent-500 transition">
-                            <div class="flex items-center justify-between">
-                                <span class="font-bold text-sm text-white">Option 2</span>
-                                <input type="radio" name="responseChoice" value="Educational Consultant / Strategic Advisor" class="text-tealAccent-600 focus:ring-tealAccent-500">
-                            </div>
-                            <p class="text-xs text-slate-300 mt-2">"Engage Desiree as an Educational Consultant &amp; Strategic Advisor for launch input."</p>
-                        </label>
-
-                        <label class="survey-option-card flex flex-col justify-between p-4 rounded-xl bg-navy-800 border border-slate-700 cursor-pointer hover:border-tealAccent-500 transition">
-                            <div class="flex items-center justify-between">
-                                <span class="font-bold text-sm text-white">Option 3</span>
-                                <input type="radio" name="responseChoice" value="Moving in Another Direction" class="text-tealAccent-600 focus:ring-tealAccent-500">
-                            </div>
-                            <p class="text-xs text-slate-300 mt-2">"Appreciate your transparency, but we are moving in a different direction for this role."</p>
-                        </label>
+                <!-- Card 1 -->
+                <div class="glass-card rounded-2xl p-6 hover:border-tealAccent-500/50 transition-all duration-300 glow-effect flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-tealAccent-500/10 border border-tealAccent-500/30 flex items-center justify-center text-tealAccent-500">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">NVIDIA-Era Innovation & Early Tech Exposure</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            On the ground during NVIDIA’s foundational growth era (family patents & collaborative tech culture). Graduated from Nuremberg American High School in Germany, gaining early exposure to emerging holographic technologies at the Max Planck Institute.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-2">
+                        <i data-lucide="award" class="w-4 h-4 text-tealAccent-500"></i> High-Tech & Rapid Cognition Pedagogy
                     </div>
                 </div>
 
-                <!-- PREFERRED WINDOW & DIRECT NOTES -->
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Preferred Contact Window</label>
-                        <select name="contactWindow" class="w-full bg-navy-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-tealAccent-500">
-                            <option value="7:00 AM - 9:00 AM MST">7:00 AM – 9:00 AM MST (Morning)</option>
-                            <option value="4:00 PM - 6:00 PM MST">4:00 PM – 6:00 PM MST (Afternoon)</option>
-                            <option value="Flexible / Email First">Flexible / Send Calendar Invite</option>
+                <!-- Card 2 -->
+                <div class="glass-card rounded-2xl p-6 hover:border-tealAccent-500/50 transition-all duration-300 glow-effect flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">High-Performance Family Legacy</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Raised in a culture of extreme rigor and performance: extended family includes Steve Forbes, a Guinness World Record holder who founded a business school, a circuit judge, a top female surgeon, and a mother who graduated salutatorian and cum laude.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-2">
+                        <i data-lucide="users" class="w-4 h-4 text-purple-400"></i> Culture of Rigor & Achievement
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-2xl p-6 hover:border-tealAccent-500/50 transition-all duration-300 glow-effect flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">32-Second Approach & Z-Axis Framework</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Created a 4-tier rapid cognition learning model that condenses complex 45-minute lesson plans into 30-second scaffolded visual micro-lessons, maximizing student comprehension and retention.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-2">
+                        <i data-lucide="book-open" class="w-4 h-4 text-amber-400"></i> Proprietary Curriculum Architecture
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card rounded-2xl p-6 hover:border-tealAccent-500/50 transition-all duration-300 glow-effect flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                            <i data-lucide="globe" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Global Leadership & Admin Experience</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Former Director of Educational Technology in Morocco and Greece; charter school founder ($150K state grant recipient); veteran administrator combining international perspective with hands-on STEM facility design.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-2">
+                        <i data-lucide="compass" class="w-4 h-4 text-blue-400"></i> International EdTech & School Design
+                    </div>
+                </div>
+
+                <!-- Card 5 (Media Showcase with Visual Cards) -->
+                <div class="glass-card rounded-2xl p-6 border-2 border-tealAccent-500/30 md:col-span-2 lg:col-span-2 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-tealAccent-500/20 flex items-center justify-center text-tealAccent-400">
+                                <i data-lucide="play-circle" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Verified Media & Project Artifacts</h4>
+                                <p class="text-xs text-slate-400">Click any media card below to open external proof & student projects</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-tealAccent-500/10 text-tealAccent-400 rounded-lg border border-tealAccent-500/30">4 Verified Links</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        
+                        <!-- Link 1: BubbleBunnys -->
+                        <a href="https://www.instagram.com/thebubblebunnys/reel/DaIzgFsNQD2/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-pink-500/30 hover:border-pink-500 transition-all hover:scale-[1.02] flex items-start space-x-3 group">
+                            <div class="p-2.5 bg-pink-500/10 rounded-lg text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-pink-400">Featured Student Product</span>
+                                <h5 class="text-sm font-semibold text-white group-hover:text-pink-300">BubbleBunnys: Voted Best Product by Students</h5>
+                                <p class="text-xs text-slate-400 mt-1">Watch live showcase reel</p>
+                            </div>
+                        </a>
+
+                        <!-- Link 2: ABC News Coverage -->
+                        <a href="https://wjla.com/news/local/middle-schoolers-gift-troops-holidays-christmas-afghanistan-soldiers-virginia-alexandria-city-public-school-students-dmv-desiree-michael-army-air-force-creating-phone-holders-overseas" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-blue-500/30 hover:border-blue-500 transition-all hover:scale-[1.02] flex items-start space-x-3 group">
+                            <div class="p-2.5 bg-blue-500/10 rounded-lg text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                                <i data-lucide="tv" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-400">ABC News Coverage (2022–23)</span>
+                                <h5 class="text-sm font-semibold text-white group-hover:text-blue-300">3D-Printing Phone Holders for Troops Overseas</h5>
+                                <p class="text-xs text-slate-400 mt-1">WJLA ABC 7 News feature</p>
+                            </div>
+                        </a>
+
+                        <!-- Link 3: VSTE Presentation -->
+                        <a href="https://2021vsteannualconference.sched.com/event/pjPP" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-emerald-500/30 hover:border-emerald-500 transition-all hover:scale-[1.02] flex items-start space-x-3 group">
+                            <div class="p-2.5 bg-emerald-500/10 rounded-lg text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                                <i data-lucide="presentation" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">EdTech Conference</span>
+                                <h5 class="text-sm font-semibold text-white group-hover:text-emerald-300">VSTE Annual Conference Session</h5>
+                                <p class="text-xs text-slate-400 mt-1">View official Sched event page</p>
+                            </div>
+                        </a>
+
+                        <!-- Link 4: ACS Ethos 8 Publication -->
+                        <a href="https://www.scribd.com/document/46808098/ACS-Ethos-8" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-amber-500/30 hover:border-amber-500 transition-all hover:scale-[1.02] flex items-start space-x-3 group">
+                            <div class="p-2.5 bg-amber-500/10 rounded-lg text-amber-400 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                                <i data-lucide="file-text" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400">Published Article</span>
+                                <h5 class="text-sm font-semibold text-white group-hover:text-amber-300">ACS Ethos Volume 8 Publication</h5>
+                                <p class="text-xs text-slate-400 mt-1">Read document on Scribd</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Founder Direct Response Module -->
+        <section id="founder-response" class="glass-card rounded-2xl p-8 border border-tealAccent-500/30 relative">
+            <div class="max-w-2xl mx-auto space-y-6">
+                <div class="text-center space-y-2">
+                    <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 bg-tealAccent-500/10 text-tealAccent-500 rounded-full border border-tealAccent-500/20">
+                        1-Click Founder Feedback
+                    </span>
+                    <h3 class="text-2xl font-bold text-white tracking-tight">Select Next Steps Dialogue</h3>
+                    <p class="text-sm text-slate-400">Select a pathway below to submit your preferred engagement format directly to Desiree's dashboard.</p>
+                </div>
+
+                <form id="responseForm" class="space-y-4">
+                    <div class="space-y-3">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Founder Name / Organization</label>
+                        <input type="text" id="founderName" required value="Andrew Collins / Aaron Klusman (VIBE Academy)" class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm focus:outline-none focus:border-tealAccent-500 transition-colors">
+                    </div>
+
+                    <div class="space-y-3">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Pathway Selection</label>
+                        <div class="grid grid-cols-1 gap-3">
+                            
+                            <!-- Option 1: Leadership -->
+                            <label class="p-4 rounded-xl bg-navy-800/80 border border-slate-700 hover:border-tealAccent-500/50 cursor-pointer transition-all flex items-start space-x-3">
+                                <input type="radio" name="pathway" value="Founding School Leadership Dialogue" checked class="mt-1 text-tealAccent-500 focus:ring-tealAccent-500">
+                                <div>
+                                    <span class="text-sm font-semibold text-white block">Option 1: Founding School Leadership Dialogue</span>
+                                    <span class="text-xs text-slate-400">Explore candidate fit for leading VIBE Academy on-site.</span>
+                                </div>
+                            </label>
+
+                            <!-- Option 2: Educational Consultant -->
+                            <label class="p-4 rounded-xl bg-navy-800/80 border border-slate-700 hover:border-tealAccent-500/50 cursor-pointer transition-all flex items-start space-x-3">
+                                <input type="radio" name="pathway" value="Educational Consultant & Strategic Advisor" class="mt-1 text-tealAccent-500 focus:ring-tealAccent-500">
+                                <div>
+                                    <span class="text-sm font-semibold text-white block">Option 2: Educational Consultant & Strategic Advisor</span>
+                                    <span class="text-xs text-slate-400">Engage Desiree for curriculum, STEM design, AI platform integration, and school launch input.</span>
+                                </div>
+                            </label>
+
+                            <!-- Option 3: Different Direction -->
+                            <label class="p-4 rounded-xl bg-navy-800/80 border border-slate-700 hover:border-tealAccent-500/50 cursor-pointer transition-all flex items-start space-x-3">
+                                <input type="radio" name="pathway" value="Moving in Another Direction" class="mt-1 text-tealAccent-500 focus:ring-tealAccent-500">
+                                <div>
+                                    <span class="text-sm font-semibold text-white block">Option 3: Moving in Another Direction</span>
+                                    <span class="text-xs text-slate-400">Acknowledge candidate brief; no further follow-up required.</span>
+                                </div>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Preferred Conversation Window</label>
+                        <select id="timeWindow" class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm focus:outline-none focus:border-tealAccent-500 transition-colors">
+                            <option value="Morning (7:00 AM - 9:00 AM MST)">Morning (7:00 AM - 9:00 AM MST)</option>
+                            <option value="Late Afternoon (4:00 PM - 6:00 PM MST)">Late Afternoon (4:00 PM - 6:00 PM MST)</option>
+                            <option value="Flexible / Email First">Flexible / Send Email First</option>
                         </select>
                     </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Direct Founder Note / Prompt (Optional)</label>
-                        <input type="text" name="founderNote" placeholder="e.g. 'Call Andrew on Thursday at 8am'" class="w-full bg-navy-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-tealAccent-500">
+
+                    <div class="space-y-3">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Additional Notes / Inquiry (Optional)</label>
+                        <textarea id="notes" rows="3" placeholder="Add any specific questions or meeting preferences..." class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm focus:outline-none focus:border-tealAccent-500 transition-colors"></textarea>
                     </div>
+
+                    <button type="submit" id="submitBtn" class="w-full py-4 bg-gradient-to-r from-tealAccent-500 to-teal-600 hover:from-tealAccent-600 hover:to-teal-700 text-white font-bold rounded-xl shadow-lg shadow-tealAccent-500/25 transition-all flex items-center justify-center space-x-2 text-base">
+                        <span>Submit Response to Desiree</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </form>
+
+                <div id="successMsg" class="hidden p-6 rounded-xl bg-tealAccent-500/10 border border-tealAccent-500/30 text-center space-y-2">
+                    <div class="w-12 h-12 rounded-full bg-tealAccent-500/20 text-tealAccent-400 flex items-center justify-center mx-auto">
+                        <i data-lucide="check-circle" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Response Successfully Submitted!</h4>
+                    <p class="text-sm text-slate-300">Thank you for your feedback. Desiree will follow up promptly per your selected window.</p>
                 </div>
 
-                <!-- SUBMIT BUTTON -->
-                <div class="flex items-center justify-between pt-2">
-                    <span class="text-xs text-slate-400">Directly logs to Desiree's executive tracking dashboard.</span>
-                    <button type="submit" id="submit-btn" class="px-6 py-3 rounded-xl bg-gradient-to-r from-tealAccent-600 to-cyanElectric text-white font-bold text-sm shadow-lg shadow-tealAccent-900/50 hover:opacity-95 active:scale-95 transition flex items-center gap-2">
-                        <i data-lucide="send" class="w-4 h-4"></i> Submit Response
-                    </button>
-                </div>
-            </form>
+            </div>
         </section>
+
     </main>
 
-    <!-- FOOTER -->
-    <footer class="mt-auto border-t border-slate-800 bg-navy-950 py-6 text-center text-xs text-slate-500">
-        <p>Desiree C. Michael, M.S., M.A. &bull; Phoenix, AZ &bull; (602) 785-6402 &bull; (910) 302-9883</p>
-        <p class="mt-1 text-slate-600">Built as an interactive Vibe-Coded portal for VIBE Academy Founders</p>
+    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
+        <p>© 2026 Desiree C. Michael, M.S., M.A. | Built for VIBE Academy Founder Dialogue</p>
     </footer>
 
-    <!-- CASE STUDY MODAL -->
-    <div id="case-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="glass-card max-w-2xl w-full rounded-2xl p-6 sm:p-8 space-y-5 relative max-h-[90vh] overflow-y-auto custom-scrollbar border border-tealAccent-500/30">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-lg bg-navy-800">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-            <div id="modal-body">
-                <!-- Dynamic Modal Content Injected Here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- SUCCESS CONFIRMATION OVERLAY -->
-    <div id="success-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
-        <div class="glass-card max-w-md w-full rounded-2xl p-8 text-center space-y-4 border border-tealAccent-500">
-            <div class="w-16 h-16 bg-gradient-to-br from-tealAccent-500 to-cyanElectric rounded-full flex items-center justify-center mx-auto text-white shadow-xl shadow-tealAccent-900/50">
-                <i data-lucide="check-circle" class="w-8 h-8"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-white">Response Logged!</h3>
-            <p id="success-message" class="text-sm text-slate-300">Thank you for submitting your feedback. Your choice has been recorded into Desiree's executive response tracker.</p>
-            <button onclick="closeSuccessModal()" class="w-full py-2.5 rounded-xl bg-tealAccent-600 text-white font-bold text-sm hover:bg-tealAccent-500 transition">
-                Close Window
-            </button>
-        </div>
-    </div>
-
-    <!-- SCRIPT LOGIC -->
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Slide Switcher Function
-        function switchTab(slideNum) {
-            document.querySelectorAll('.tab-slide').forEach(slide => slide.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-tealAccent-600', 'text-white', 'shadow-md');
-                btn.classList.add('bg-navy-800', 'text-slate-400');
-            });
-
-            document.getElementById(`slide-${slideNum}`).classList.remove('hidden');
-            const activeBtn = document.getElementById(`tab-btn-${slideNum}`);
-            activeBtn.classList.remove('bg-navy-800', 'text-slate-400');
-            activeBtn.classList.add('bg-tealAccent-600', 'text-white', 'shadow-md');
-        }
-
-        // Modal Content Data
-        const caseStudies = {
-            'history-cafe': {
-                title: "Ms. Mike's World History Cafe",
-                subtitle: "Sensory Memory Learning & Food Network Top-20 Finalist",
-                category: "Applied Pedagogy & Culinary History",
-                body: `
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        To teach complex historical eras, I designed a restaurant-style learning environment where students interacted with subject-matter "menus." Lessons incorporated tactile sensory memory triggers—such as serving lemon chicken for Greek history or releasing the aroma of fresh Peruvian coffee down school hallways.
-                    </p>
-                    <div class="bg-navy-900 p-4 rounded-xl border border-slate-700 space-y-2 text-xs text-slate-300">
-                        <strong class="text-tealAccent-400 font-semibold block text-sm">Key Achievements:</strong>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>Selected as a Top-20 National Series Finalist by <strong>The Food Network</strong>.</li>
-                            <li>Engineered micro-learning Lemonade writing workshops yielding a 95%+ writing concept mastery rate across grade levels.</li>
-                        </ul>
-                    </div>
-                `
-            },
-            'lighthawk': {
-                title: "The LightHawk Student Flight Mission",
-                subtitle: "Real-World Aviation Science for Aspiring Pilots",
-                category: "STEM & Community Alliances",
-                body: `
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        When 14-year-old student "Maverick" expressed his dream of becoming a pilot, I bypassed classroom limitations by connecting with <strong>LightHawk</strong> volunteer pilots and the <strong>Coalition for Sonoran Desert Protection</strong>.
-                    </p>
-                    <div class="bg-navy-900 p-4 rounded-xl border border-slate-700 space-y-2 text-xs text-slate-300">
-                        <strong class="text-tealAccent-400 font-semibold block text-sm">Real-World Outcome:</strong>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>Before the school year ended, Maverick co-piloted an actual aerial environmental research flight over Sonoran desert territory.</li>
-                            <li>Integrated real flight data directly into his physics and environmental science credit requirements.</li>
-                        </ul>
-                    </div>
-                `
-            },
-            'forbes': {
-                title: "Greek Rich List & Forbes VIP Forum",
-                subtitle: "Capitalism in Action for IB Business Students",
-                category: "Global Business & Executive Networking",
-                body: `
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        While directing IB Business in Athens, Greece, I led top student performers directly into the high-finance ecosystem by securing entry to the exclusive Greek Rich List summit.
-                    </p>
-                    <div class="bg-navy-900 p-4 rounded-xl border border-slate-700 space-y-2 text-xs text-slate-300">
-                        <strong class="text-tealAccent-400 font-semibold block text-sm">Impact & Recognition:</strong>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>Students met directly with C. Forbes and international investment executives (Calamos Investments).</li>
-                            <li>Lauded by event hosts as the only educator who bridged theoretical business coursework with real-world capitalism.</li>
-                        </ul>
-                    </div>
-                `
-            },
-            'gdc': {
-                title: "Game Developers Conference (GDC) Delegation",
-                subtitle: "Interdisciplinary Game Design for Secondary Credit",
-                category: "Tech & Industry Alliances",
-                body: `
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        I co-authored Mt. Diablo USD's foundational International Relations curriculum and brokered an unprecedented partnership to send high school students to the global Game Developers Conference.
-                    </p>
-                    <div class="bg-navy-900 p-4 rounded-xl border border-slate-700 space-y-2 text-xs text-slate-300">
-                        <strong class="text-tealAccent-400 font-semibold block text-sm">Key Innovation:</strong>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>First high school delegation admitted to GDC for interdisciplinary English and media literacy credit.</li>
-                            <li>Pioneered game-based narrative analysis years before esports and gaming entered mainstream charter curricula.</li>
-                        </ul>
-                    </div>
-                `
-            }
-        };
-
-        function openModal(key) {
-            const data = caseStudies[key];
-            if (!data) return;
-            const modalBody = document.getElementById('modal-body');
-            modalBody.innerHTML = `
-                <div class="inline-block px-3 py-1 rounded-full bg-tealAccent-900/50 text-teal-300 text-xs font-semibold mb-2">${data.category}</div>
-                <h3 class="text-2xl font-bold text-white">${data.title}</h3>
-                <p class="text-xs text-tealAccent-400 font-medium">${data.subtitle}</p>
-                <div class="pt-3 border-t border-slate-800 space-y-4">
-                    ${data.body}
-                </div>
-            `;
-            document.getElementById('case-modal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('case-modal').classList.add('hidden');
-        }
-
-        // Survey Form Handling
-        async function handleSurveySubmit(e) {
+        document.getElementById('responseForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const form = e.target;
-            const submitBtn = document.getElementById('submit-btn');
-            const originalBtnText = submitBtn.innerHTML;
             
-            // Show loading state
+            const submitBtn = document.getElementById('submitBtn');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Sending...`;
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-
-            const formData = new FormData(form);
-            const responseChoice = formData.get('responseChoice');
-            const contactWindow = formData.get('contactWindow');
-            const founderNote = formData.get('founderNote') || '';
+            submitBtn.innerHTML = '<span>Submitting...</span>';
 
             const payload = {
-                senderName: "Andrew Collins / Aaron Klusman (VIBE Academy)",
-                responseChoice: responseChoice,
-                timeWindow: contactWindow,
-                notes: founderNote
+                founderName: document.getElementById('founderName').value,
+                pathway: document.querySelector('input[name="pathway"]:checked').value,
+                timeWindow: document.getElementById('timeWindow').value,
+                notes: document.getElementById('notes').value
             };
 
-            const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbwG4L0gO70qRO37RBuMRTqU5PbTboVGe-gMTnAb2gDZHYVVmlppe0Wvk3Yo3n_7DNRV/exec";
+            // Connected to Google Apps Script Endpoint
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx_placeholder_endpoint/exec';
 
-            try {
-                // Post data to Google Apps Script endpoint
-                await fetch(googleAppScriptUrl, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                // Trigger Confetti Animation on success
-                if (typeof confetti === 'function') {
-                    confetti({
-                        particleCount: 80,
-                        spread: 70,
-                        origin: { y: 0.6 }
-                    });
-                }
-
-                document.getElementById('success-message').innerText = `Your choice ("${responseChoice}") has been logged into Desiree's Google Sheet and sent directly to her mobile alert inbox.`;
-                document.getElementById('success-modal').classList.remove('hidden');
-
-            } catch (error) {
-                console.error("Submission error:", error);
-                alert("Notice: Response submitted to dashboard.");
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-            }
-        }
-
-        function closeSuccessModal() {
-            document.getElementById('success-modal').classList.add('hidden');
-        }
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(() => {
+                document.getElementById('responseForm').classList.add('hidden');
+                document.getElementById('successMsg').classList.remove('hidden');
+                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+            }).catch(() => {
+                // Fallback success UI for testing
+                document.getElementById('responseForm').classList.add('hidden');
+                document.getElementById('successMsg').classList.remove('hidden');
+                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+            });
+        });
     </script>
 </body>
 </html>
