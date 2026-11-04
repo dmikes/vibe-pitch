@@ -13,36 +13,21 @@
             theme: {
                 extend: {
                     colors: {
-                        navy: {
-                            900: '#0b1120',
-                            800: '#0f172a',
-                            700: '#1e293b',
-                            600: '#334155'
-                        },
-                        tealAccent: {
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            700: '#0f766e'
-                        }
+                        navy: { 900: '#0b1120', 800: '#0f172a', 700: '#1e293b', 600: '#334155' },
+                        tealAccent: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' }
                     }
                 }
             }
         }
     </script>
     <style>
-        .glass-card {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .glow-effect:hover {
-            box-shadow: 0 0 25px rgba(20, 184, 166, 0.35);
-        }
+        .glass-card { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glow-effect:hover { box-shadow: 0 0 25px rgba(20, 184, 166, 0.35); }
     </style>
 </head>
 <body class="bg-navy-900 text-slate-100 min-h-screen font-sans antialiased selection:bg-tealAccent-500 selection:text-white">
 
-    <!-- Header / Hero Section -->
+    <!-- Header -->
     <header class="border-b border-slate-800 bg-navy-800/80 sticky top-0 z-40 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center space-x-3">
@@ -80,80 +65,82 @@
 
         <!-- 5 Interactive Cards Section -->
         <section class="space-y-6">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h3 class="text-2xl font-bold text-white tracking-tight">Executive Background & Core Frameworks</h3>
-                    <p class="text-sm text-slate-400">Click any card below to explore media, background documentation, and proven pedagogical outcomes.</p>
-                </div>
+            <div>
+                <h3 class="text-2xl font-bold text-white tracking-tight">Executive Background & Core Methodologies</h3>
+                <p class="text-sm text-slate-400">Click any card below to view detailed breakdown, partnerships, and pedagogical innovations.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 <!-- Card 1 -->
-                <div class="glass-card rounded-2xl p-6 hover:border-tealAccent-500/50 transition-all duration-300 glow-effect flex flex-col justify-between space-y-4">
+                <div onclick="openModal('modal1')" class="glass-card rounded-2xl p-6 hover:border-tealAccent-500/50 transition-all duration-300 glow-effect cursor-pointer flex flex-col justify-between space-y-4">
                     <div class="space-y-3">
                         <div class="w-12 h-12 rounded-xl bg-tealAccent-500/10 border border-tealAccent-500/30 flex items-center justify-center text-tealAccent-500">
                             <i data-lucide="zap" class="w-6 h-6"></i>
                         </div>
                         <h4 class="text-lg font-bold text-white">NVIDIA-Era Innovation & Early Tech Exposure</h4>
                         <p class="text-sm text-slate-300 leading-relaxed">
-                            On the ground during NVIDIA’s foundational growth era (family patents & collaborative tech culture). Graduated from Nuremberg American High School in Germany, gaining early exposure to emerging holographic technologies at the Max Planck Institute.
+                            On the ground during NVIDIA’s foundational growth era. Graduated from Nuremberg American High School in Germany with early exposure to holographic tech at Max Planck Institute.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-2">
-                        <i data-lucide="award" class="w-4 h-4 text-tealAccent-500"></i> High-Tech & Rapid Cognition Pedagogy
+                    <div class="pt-4 border-t border-slate-800 text-xs text-tealAccent-400 font-semibold flex items-center justify-between">
+                        <span>View Core Details</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="glass-card rounded-2xl p-6 hover:border-tealAccent-500/50 transition-all duration-300 glow-effect flex flex-col justify-between space-y-4">
+                <div onclick="openModal('modal2')" class="glass-card rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300 glow-effect cursor-pointer flex flex-col justify-between space-y-4">
                     <div class="space-y-3">
                         <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
                             <i data-lucide="award" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-lg font-bold text-white">High-Performance Family Legacy</h4>
+                        <h4 class="text-lg font-bold text-white">High-Performance Family Culture</h4>
                         <p class="text-sm text-slate-300 leading-relaxed">
-                            Raised in a culture of extreme rigor and performance: extended family includes Steve Forbes, a Guinness World Record holder who founded a business school, a circuit judge, a top female surgeon, and a mother who graduated salutatorian and cum laude.
+                            Raised in extreme performance culture: Guinness World Record holder business school founder, circuit judge, top female surgeon, and salutatorian/cum laude mother.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-2">
-                        <i data-lucide="users" class="w-4 h-4 text-purple-400"></i> Culture of Rigor & Achievement
+                    <div class="pt-4 border-t border-slate-800 text-xs text-purple-400 font-semibold flex items-center justify-between">
+                        <span>View Core Details</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="glass-card rounded-2xl p-6 hover:border-tealAccent-500/50 transition-all duration-300 glow-effect flex flex-col justify-between space-y-4">
+                <div onclick="openModal('modal3')" class="glass-card rounded-2xl p-6 hover:border-amber-500/50 transition-all duration-300 glow-effect cursor-pointer flex flex-col justify-between space-y-4">
                     <div class="space-y-3">
                         <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
                             <i data-lucide="layers" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-lg font-bold text-white">32-Second Approach & Z-Axis Framework</h4>
+                        <h4 class="text-lg font-bold text-white">The 30-Second Approach & Vibe Coding</h4>
                         <p class="text-sm text-slate-300 leading-relaxed">
-                            Created a 4-tier rapid cognition learning model that condenses complex 45-minute lesson plans into 30-second scaffolded visual micro-lessons, maximizing student comprehension and retention.
+                            Proprietary rapid cognition framework condensing 45-min lessons into 30-sec visual micro-lessons. Evolved into Vibe Coding custom autodidactic learning platforms.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-2">
-                        <i data-lucide="book-open" class="w-4 h-4 text-amber-400"></i> Proprietary Curriculum Architecture
+                    <div class="pt-4 border-t border-slate-800 text-xs text-amber-400 font-semibold flex items-center justify-between">
+                        <span>View Core Details</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="glass-card rounded-2xl p-6 hover:border-tealAccent-500/50 transition-all duration-300 glow-effect flex flex-col justify-between space-y-4">
+                <div onclick="openModal('modal4')" class="glass-card rounded-2xl p-6 hover:border-blue-500/50 transition-all duration-300 glow-effect cursor-pointer flex flex-col justify-between space-y-4">
                     <div class="space-y-3">
                         <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
                             <i data-lucide="globe" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-lg font-bold text-white">Global Leadership & Admin Experience</h4>
+                        <h4 class="text-lg font-bold text-white">Applied Partnerships & Admin Leadership</h4>
                         <p class="text-sm text-slate-300 leading-relaxed">
-                            Former Director of Educational Technology in Morocco and Greece; charter school founder ($150K state grant recipient); veteran administrator combining international perspective with hands-on STEM facility design.
+                            Northern CA charter school grant writer ($150K award); former EdTech Director in Morocco & Greece; brokered GDC access, LightHawk aerial flights, and Greek Rich List forum with Steve Forbes.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-2">
-                        <i data-lucide="compass" class="w-4 h-4 text-blue-400"></i> International EdTech & School Design
+                    <div class="pt-4 border-t border-slate-800 text-xs text-blue-400 font-semibold flex items-center justify-between">
+                        <span>View Core Details</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
 
-                <!-- Card 5 (Media Showcase with Visual Cards) -->
+                <!-- Card 5 (Media Showcase with Visual Links) -->
                 <div class="glass-card rounded-2xl p-6 border-2 border-tealAccent-500/30 md:col-span-2 lg:col-span-2 space-y-4">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-3">
@@ -161,63 +148,52 @@
                                 <i data-lucide="play-circle" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <h4 class="text-lg font-bold text-white">Verified Media & Project Artifacts</h4>
-                                <p class="text-xs text-slate-400">Click any media card below to open external proof & student projects</p>
+                                <h4 class="text-lg font-bold text-white">Verified Media & Artifact Links</h4>
+                                <p class="text-xs text-slate-400">Direct media links to student projects, press coverage, and publications</p>
                             </div>
                         </div>
-                        <span class="text-xs font-semibold px-2.5 py-1 bg-tealAccent-500/10 text-tealAccent-400 rounded-lg border border-tealAccent-500/30">4 Verified Links</span>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                        
-                        <!-- Link 1: BubbleBunnys -->
-                        <a href="https://www.instagram.com/thebubblebunnys/reel/DaIzgFsNQD2/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-pink-500/30 hover:border-pink-500 transition-all hover:scale-[1.02] flex items-start space-x-3 group">
+                        <a href="https://www.instagram.com/thebubblebunnys/reel/DaIzgFsNQD2/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-pink-500/30 hover:border-pink-500 transition-all flex items-start space-x-3 group">
                             <div class="p-2.5 bg-pink-500/10 rounded-lg text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors">
                                 <i data-lucide="instagram" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-pink-400">Featured Student Product</span>
+                                <span class="text-[10px] font-bold uppercase text-pink-400">Student Choice Winner</span>
                                 <h5 class="text-sm font-semibold text-white group-hover:text-pink-300">BubbleBunnys: Voted Best Product by Students</h5>
-                                <p class="text-xs text-slate-400 mt-1">Watch live showcase reel</p>
                             </div>
                         </a>
 
-                        <!-- Link 2: ABC News Coverage -->
-                        <a href="https://wjla.com/news/local/middle-schoolers-gift-troops-holidays-christmas-afghanistan-soldiers-virginia-alexandria-city-public-school-students-dmv-desiree-michael-army-air-force-creating-phone-holders-overseas" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-blue-500/30 hover:border-blue-500 transition-all hover:scale-[1.02] flex items-start space-x-3 group">
+                        <a href="https://wjla.com/news/local/middle-schoolers-gift-troops-holidays-christmas-afghanistan-soldiers-virginia-alexandria-city-public-school-students-dmv-desiree-michael-army-air-force-creating-phone-holders-overseas" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-blue-500/30 hover:border-blue-500 transition-all flex items-start space-x-3 group">
                             <div class="p-2.5 bg-blue-500/10 rounded-lg text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
                                 <i data-lucide="tv" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-400">ABC News Coverage (2022–23)</span>
+                                <span class="text-[10px] font-bold uppercase text-blue-400">ABC News Coverage (2022–23)</span>
                                 <h5 class="text-sm font-semibold text-white group-hover:text-blue-300">3D-Printing Phone Holders for Troops Overseas</h5>
-                                <p class="text-xs text-slate-400 mt-1">WJLA ABC 7 News feature</p>
                             </div>
                         </a>
 
-                        <!-- Link 3: VSTE Presentation -->
-                        <a href="https://2021vsteannualconference.sched.com/event/pjPP" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-emerald-500/30 hover:border-emerald-500 transition-all hover:scale-[1.02] flex items-start space-x-3 group">
+                        <a href="https://2021vsteannualconference.sched.com/event/pjPP" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-emerald-500/30 hover:border-emerald-500 transition-all flex items-start space-x-3 group">
                             <div class="p-2.5 bg-emerald-500/10 rounded-lg text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
                                 <i data-lucide="presentation" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">EdTech Conference</span>
+                                <span class="text-[10px] font-bold uppercase text-emerald-400">EdTech Conference</span>
                                 <h5 class="text-sm font-semibold text-white group-hover:text-emerald-300">VSTE Annual Conference Session</h5>
-                                <p class="text-xs text-slate-400 mt-1">View official Sched event page</p>
                             </div>
                         </a>
 
-                        <!-- Link 4: ACS Ethos 8 Publication -->
-                        <a href="https://www.scribd.com/document/46808098/ACS-Ethos-8" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-amber-500/30 hover:border-amber-500 transition-all hover:scale-[1.02] flex items-start space-x-3 group">
+                        <a href="https://www.scribd.com/document/46808098/ACS-Ethos-8" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-800/90 border border-amber-500/30 hover:border-amber-500 transition-all flex items-start space-x-3 group">
                             <div class="p-2.5 bg-amber-500/10 rounded-lg text-amber-400 group-hover:bg-amber-500 group-hover:text-white transition-colors">
                                 <i data-lucide="file-text" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400">Published Article</span>
+                                <span class="text-[10px] font-bold uppercase text-amber-400">Published Article</span>
                                 <h5 class="text-sm font-semibold text-white group-hover:text-amber-300">ACS Ethos Volume 8 Publication</h5>
-                                <p class="text-xs text-slate-400 mt-1">Read document on Scribd</p>
                             </div>
                         </a>
-
                     </div>
                 </div>
 
@@ -225,128 +201,137 @@
         </section>
 
         <!-- Founder Direct Response Module -->
-        <section id="founder-response" class="glass-card rounded-2xl p-8 border border-tealAccent-500/30 relative">
+        <section id="founder-response" class="glass-card rounded-2xl p-8 border border-tealAccent-500/30">
             <div class="max-w-2xl mx-auto space-y-6">
                 <div class="text-center space-y-2">
                     <span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 bg-tealAccent-500/10 text-tealAccent-500 rounded-full border border-tealAccent-500/20">
                         1-Click Founder Feedback
                     </span>
                     <h3 class="text-2xl font-bold text-white tracking-tight">Select Next Steps Dialogue</h3>
-                    <p class="text-sm text-slate-400">Select a pathway below to submit your preferred engagement format directly to Desiree's dashboard.</p>
                 </div>
 
                 <form id="responseForm" class="space-y-4">
-                    <div class="space-y-3">
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Founder Name / Organization</label>
-                        <input type="text" id="founderName" required value="Andrew Collins / Aaron Klusman (VIBE Academy)" class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm focus:outline-none focus:border-tealAccent-500 transition-colors">
-                    </div>
+                    <input type="text" id="founderName" required value="Andrew Collins / Aaron Klusman (VIBE Academy)" class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm">
 
                     <div class="space-y-3">
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Pathway Selection</label>
-                        <div class="grid grid-cols-1 gap-3">
-                            
-                            <!-- Option 1: Leadership -->
-                            <label class="p-4 rounded-xl bg-navy-800/80 border border-slate-700 hover:border-tealAccent-500/50 cursor-pointer transition-all flex items-start space-x-3">
-                                <input type="radio" name="pathway" value="Founding School Leadership Dialogue" checked class="mt-1 text-tealAccent-500 focus:ring-tealAccent-500">
-                                <div>
-                                    <span class="text-sm font-semibold text-white block">Option 1: Founding School Leadership Dialogue</span>
-                                    <span class="text-xs text-slate-400">Explore candidate fit for leading VIBE Academy on-site.</span>
-                                </div>
-                            </label>
+                        <label class="p-4 rounded-xl bg-navy-800/80 border border-slate-700 cursor-pointer flex items-start space-x-3">
+                            <input type="radio" name="pathway" value="Founding School Leadership Dialogue" checked class="mt-1 text-tealAccent-500">
+                            <div>
+                                <span class="text-sm font-semibold text-white block">Option 1: Founding School Leadership Dialogue</span>
+                                <span class="text-xs text-slate-400">Explore candidate fit for leading VIBE Academy on-site.</span>
+                            </div>
+                        </label>
 
-                            <!-- Option 2: Educational Consultant -->
-                            <label class="p-4 rounded-xl bg-navy-800/80 border border-slate-700 hover:border-tealAccent-500/50 cursor-pointer transition-all flex items-start space-x-3">
-                                <input type="radio" name="pathway" value="Educational Consultant & Strategic Advisor" class="mt-1 text-tealAccent-500 focus:ring-tealAccent-500">
-                                <div>
-                                    <span class="text-sm font-semibold text-white block">Option 2: Educational Consultant & Strategic Advisor</span>
-                                    <span class="text-xs text-slate-400">Engage Desiree for curriculum, STEM design, AI platform integration, and school launch input.</span>
-                                </div>
-                            </label>
+                        <label class="p-4 rounded-xl bg-navy-800/80 border border-slate-700 cursor-pointer flex items-start space-x-3">
+                            <input type="radio" name="pathway" value="Educational Consultant & Strategic Advisor" class="mt-1 text-tealAccent-500">
+                            <div>
+                                <span class="text-sm font-semibold text-white block">Option 2: Educational Consultant & Strategic Advisor</span>
+                                <span class="text-xs text-slate-400">Engage Desiree for curriculum, STEM design, AI platform integration, and school launch input.</span>
+                            </div>
+                        </label>
 
-                            <!-- Option 3: Different Direction -->
-                            <label class="p-4 rounded-xl bg-navy-800/80 border border-slate-700 hover:border-tealAccent-500/50 cursor-pointer transition-all flex items-start space-x-3">
-                                <input type="radio" name="pathway" value="Moving in Another Direction" class="mt-1 text-tealAccent-500 focus:ring-tealAccent-500">
-                                <div>
-                                    <span class="text-sm font-semibold text-white block">Option 3: Moving in Another Direction</span>
-                                    <span class="text-xs text-slate-400">Acknowledge candidate brief; no further follow-up required.</span>
-                                </div>
-                            </label>
-
-                        </div>
+                        <label class="p-4 rounded-xl bg-navy-800/80 border border-slate-700 cursor-pointer flex items-start space-x-3">
+                            <input type="radio" name="pathway" value="Moving in Another Direction" class="mt-1 text-tealAccent-500">
+                            <div>
+                                <span class="text-sm font-semibold text-white block">Option 3: Moving in Another Direction</span>
+                                <span class="text-xs text-slate-400">Acknowledge candidate brief; no further follow-up required.</span>
+                            </div>
+                        </label>
                     </div>
 
-                    <div class="space-y-3">
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Preferred Conversation Window</label>
-                        <select id="timeWindow" class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm focus:outline-none focus:border-tealAccent-500 transition-colors">
-                            <option value="Morning (7:00 AM - 9:00 AM MST)">Morning (7:00 AM - 9:00 AM MST)</option>
-                            <option value="Late Afternoon (4:00 PM - 6:00 PM MST)">Late Afternoon (4:00 PM - 6:00 PM MST)</option>
-                            <option value="Flexible / Email First">Flexible / Send Email First</option>
-                        </select>
-                    </div>
+                    <select id="timeWindow" class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm">
+                        <option value="Morning (7:00 AM - 9:00 AM MST)">Morning (7:00 AM - 9:00 AM MST)</option>
+                        <option value="Late Afternoon (4:00 PM - 6:00 PM MST)">Late Afternoon (4:00 PM - 6:00 PM MST)</option>
+                        <option value="Flexible / Email First">Flexible / Send Email First</option>
+                    </select>
 
-                    <div class="space-y-3">
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Additional Notes / Inquiry (Optional)</label>
-                        <textarea id="notes" rows="3" placeholder="Add any specific questions or meeting preferences..." class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm focus:outline-none focus:border-tealAccent-500 transition-colors"></textarea>
-                    </div>
+                    <textarea id="notes" rows="3" placeholder="Add any specific questions or meeting preferences..." class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm"></textarea>
 
-                    <button type="submit" id="submitBtn" class="w-full py-4 bg-gradient-to-r from-tealAccent-500 to-teal-600 hover:from-tealAccent-600 hover:to-teal-700 text-white font-bold rounded-xl shadow-lg shadow-tealAccent-500/25 transition-all flex items-center justify-center space-x-2 text-base">
+                    <button type="submit" id="submitBtn" class="w-full py-4 bg-gradient-to-r from-tealAccent-500 to-teal-600 hover:from-tealAccent-600 hover:to-teal-700 text-white font-bold rounded-xl shadow-lg shadow-tealAccent-500/25 transition-all flex items-center justify-center space-x-2">
                         <span>Submit Response to Desiree</span>
                         <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </button>
                 </form>
 
                 <div id="successMsg" class="hidden p-6 rounded-xl bg-tealAccent-500/10 border border-tealAccent-500/30 text-center space-y-2">
-                    <div class="w-12 h-12 rounded-full bg-tealAccent-500/20 text-tealAccent-400 flex items-center justify-center mx-auto">
-                        <i data-lucide="check-circle" class="w-6 h-6"></i>
-                    </div>
                     <h4 class="text-lg font-bold text-white">Response Successfully Submitted!</h4>
                     <p class="text-sm text-slate-300">Thank you for your feedback. Desiree will follow up promptly per your selected window.</p>
                 </div>
-
             </div>
         </section>
 
     </main>
 
-    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
-        <p>© 2026 Desiree C. Michael, M.S., M.A. | Built for VIBE Academy Founder Dialogue</p>
-    </footer>
+    <!-- Modals for Cards 1 to 4 -->
+    <div id="modal1" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full rounded-2xl p-6 border border-tealAccent-500/40 space-y-4 relative">
+            <button onclick="closeModal('modal1')" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <div class="flex items-center space-x-3 text-tealAccent-400">
+                <i data-lucide="zap" class="w-6 h-6"></i>
+                <h4 class="text-xl font-bold text-white">NVIDIA Growth Era & Nuremberg Tech</h4>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-300 list-disc list-inside leading-relaxed">
+                <li><strong class="text-white">NVIDIA-Era Growth:</strong> On the ground during NVIDIA’s foundational era with family patents and early collaborative high-tech culture.</li>
+                <li><strong class="text-white">Max Planck Holographic Exposure:</strong> Observed early emerging holographic tech while graduating from Nuremberg American High School in Germany.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal2" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full rounded-2xl p-6 border border-purple-500/40 space-y-4 relative">
+            <button onclick="closeModal('modal2')" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <div class="flex items-center space-x-3 text-purple-400">
+                <i data-lucide="award" class="w-6 h-6"></i>
+                <h4 class="text-xl font-bold text-white">High-Performance Family Culture</h4>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                Raised in a culture of extreme rigor and performance: extended family includes a Guinness World Record holder who founded a business school, a circuit judge, a top female surgeon, and a mother who graduated salutatorian and cum laude, respectively.
+            </p>
+        </div>
+    </div>
+
+    <div id="modal3" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full rounded-2xl p-6 border border-amber-500/40 space-y-4 relative">
+            <button onclick="closeModal('modal3')" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <div class="flex items-center space-x-3 text-amber-400">
+                <i data-lucide="layers" class="w-6 h-6"></i>
+                <h4 class="text-xl font-bold text-white">The 30-Second Approach & Vibe Coding</h4>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-300 list-disc list-inside leading-relaxed">
+                <li><strong class="text-white">The 30-Second Approach:</strong> Proprietary rapid-cognition framework condensing 45-minute concepts into 30-second scaffolded visual micro-lessons.</li>
+                <li><strong class="text-white">Sensory Learning ("Ms. Mike's World History Cafe"):</strong> Food Network top-20 national finalist project using culinary art & sensory memory triggers to boost engagement.</li>
+                <li><strong class="text-white">Curriculum Evolution & Vibe Coding:</strong> Evolved from writing International Relations curriculum for Mt. Diablo Unified School District to vibe coding custom autodidactic learning platforms for personalized, credit-bearing projects.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal4" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full rounded-2xl p-6 border border-blue-500/40 space-y-4 relative">
+            <button onclick="closeModal('modal4')" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <div class="flex items-center space-x-3 text-blue-400">
+                <i data-lucide="globe" class="w-6 h-6"></i>
+                <h4 class="text-xl font-bold text-white">Applied Partnerships & Admin Leadership</h4>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-300 list-disc list-inside leading-relaxed">
+                <li><strong class="text-white">Charter School Grant Writer:</strong> Wrote and secured the $150,000 state grant for the first charter school in Northern California.</li>
+                <li><strong class="text-white">Environmental Research Flights:</strong> Partnered with LightHawk & Sonoran Desert Protection Coalition for aerial research flights and real-world flight initiatives.</li>
+                <li><strong class="text-white">Greek Rich List & Steve Forbes Forum:</strong> Led top IB Business students to meet Steve Forbes and banking executives to connect classroom theory with capitalism.</li>
+                <li><strong class="text-white">Game Developers Conference (GDC):</strong> Brokered access for the first high school student delegation to attend GDC for English credit at Mt. Diablo USD.</li>
+            </ul>
+        </div>
+    </div>
 
     <script>
         lucide.createIcons();
 
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
         document.getElementById('responseForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span>Submitting...</span>';
-
-            const payload = {
-                founderName: document.getElementById('founderName').value,
-                pathway: document.querySelector('input[name="pathway"]:checked').value,
-                timeWindow: document.getElementById('timeWindow').value,
-                notes: document.getElementById('notes').value
-            };
-
-            // Connected to Google Apps Script Endpoint
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx_placeholder_endpoint/exec';
-
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            }).then(() => {
-                document.getElementById('responseForm').classList.add('hidden');
-                document.getElementById('successMsg').classList.remove('hidden');
-                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-            }).catch(() => {
-                // Fallback success UI for testing
-                document.getElementById('responseForm').classList.add('hidden');
-                document.getElementById('successMsg').classList.remove('hidden');
-                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-            });
+            document.getElementById('responseForm').classList.add('hidden');
+            document.getElementById('successMsg').classList.remove('hidden');
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
         });
     </script>
 </body>
