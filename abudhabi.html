@@ -212,7 +212,7 @@
                 </div>
 
                 <form id="responseForm" class="space-y-4">
-                    <input type="text" id="founderName" required value="Christopher Marshall / Abu Dhabi Selection Committee" class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm">
+                    <input type="text" id="founderName" name="founderName" required value="Christopher Marshall / Abu Dhabi Selection Committee" class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm">
 
                     <div class="space-y-3">
                         <label class="p-4 rounded-xl bg-navy-800/80 border border-slate-700 cursor-pointer flex items-start space-x-3">
@@ -240,13 +240,13 @@
                         </label>
                     </div>
 
-                    <select id="timeWindow" class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm">
+                    <select id="timeWindow" name="timeWindow" class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm">
                         <option value="Morning (GST / Gulf Standard Time)">Morning (GST / Gulf Standard Time)</option>
                         <option value="Afternoon (GST / Gulf Standard Time)">Afternoon (GST / Gulf Standard Time)</option>
                         <option value="Flexible / Send Email First">Flexible / Send Email First</option>
                     </select>
 
-                    <textarea id="notes" rows="3" placeholder="Add any specific candidate questions or interview details..." class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm"></textarea>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Add any specific candidate questions or interview details..." class="w-full px-4 py-3 rounded-xl bg-navy-800 border border-slate-700 text-white text-sm"></textarea>
 
                     <button type="submit" id="submitBtn" class="w-full py-4 bg-gradient-to-r from-tealAccent-500 to-teal-600 hover:from-tealAccent-600 hover:to-teal-700 text-white font-bold rounded-xl shadow-lg shadow-tealAccent-500/25 transition-all flex items-center justify-center space-x-2">
                         <span>Submit Response to Desiree</span>
@@ -395,33 +395,42 @@
     <script>
         function openModal(id) { 
             var modal = document.getElementById(id);
-            if (modal) {
-                modal.classList.remove('hidden'); 
-            }
-            if (window.lucide && typeof window.lucide.createIcons === 'function') {
-                window.lucide.createIcons();
-            }
+            if (modal) { modal.classList.remove('hidden'); }
+            if (window.lucide && typeof window.lucide.createIcons === 'function') { window.lucide.createIcons(); }
         }
         function closeModal(id) { 
             var modal = document.getElementById(id);
-            if (modal) {
-                modal.classList.add('hidden'); 
-            }
+            if (modal) { modal.classList.add('hidden'); }
         }
 
         window.addEventListener('load', function() {
-            if (window.lucide && typeof window.lucide.createIcons === 'function') {
-                window.lucide.createIcons();
-            }
+            if (window.lucide && typeof window.lucide.createIcons === 'function') { window.lucide.createIcons(); }
+            
             var form = document.getElementById('responseForm');
             if (form) {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    document.getElementById('responseForm').classList.add('hidden');
-                    document.getElementById('successMsg').classList.remove('hidden');
-                    if (window.confetti) {
-                        window.confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-                    }
+                    
+                    var submitBtn = document.getElementById('submitBtn');
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<span>Submitting...</span>';
+
+                    var formData = new FormData(form);
+                    var scriptURL = 'https://script.google.com/macros/s/AKfycbyQ-inX5IJcimPgmiqTxNId-mK_rQ5YkRaYGM31IzUviJ42gjTpBu-Q6XWQkAcSX7KP/exec';
+
+                    fetch(scriptURL, { method: 'POST', body: formData })
+                        .then(function(response) {
+                            document.getElementById('responseForm').classList.add('hidden');
+                            document.getElementById('successMsg').classList.remove('hidden');
+                            if (window.confetti) {
+                                window.confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+                            }
+                        })
+                        .catch(function(error) {
+                            alert('There was an issue submitting your form. Please try again.');
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = '<span>Submit Response to Desiree</span>';
+                        });
                 });
             }
         });
