@@ -415,22 +415,32 @@
                     submitBtn.disabled = true;
                     submitBtn.innerHTML = '<span>Submitting...</span>';
 
+                    // Convert Form Data to URL Search Params to bypass CORS issues
                     var formData = new FormData(form);
+                    var searchParams = new URLSearchParams(formData);
+
                     var scriptURL = 'https://script.google.com/macros/s/AKfycbyQ-inX5IJcimPgmiqTxNId-mK_rQ5YkRaYGM31IzUviJ42gjTpBu-Q6XWQkAcSX7KP/exec';
 
-                    fetch(scriptURL, { method: 'POST', body: formData })
-                        .then(function(response) {
-                            document.getElementById('responseForm').classList.add('hidden');
-                            document.getElementById('successMsg').classList.remove('hidden');
-                            if (window.confetti) {
-                                window.confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-                            }
-                        })
-                        .catch(function(error) {
-                            alert('There was an issue submitting your form. Please try again.');
-                            submitBtn.disabled = false;
-                            submitBtn.innerHTML = '<span>Submit Response to Desiree</span>';
-                        });
+                    fetch(scriptURL, { 
+                        method: 'POST', 
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: searchParams.toString()
+                    })
+                    .then(function() {
+                        document.getElementById('responseForm').classList.add('hidden');
+                        document.getElementById('successMsg').classList.remove('hidden');
+                        if (window.confetti) {
+                            window.confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+                        }
+                    })
+                    .catch(function(error) {
+                        alert('There was an issue submitting your form. Please try again.');
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<span>Submit Response to Desiree</span>';
+                    });
                 });
             }
         });
