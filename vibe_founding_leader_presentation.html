@@ -92,11 +92,14 @@
         .intro-text {
             position: relative;
             z-index: 1;
-            margin: 0;
+            margin: 0 0 12px 0;
             color: #e2e8f0;
             font-size: 0.98rem;
             line-height: 1.65;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        .intro-text:last-of-type {
+            margin-bottom: 0;
         }
         .intro-text strong {
             color: #ffffff;
@@ -245,6 +248,19 @@
             line-height: 1.55;
             margin: 0 0 12px 0;
         }
+        .card-list {
+            margin: 6px 0 14px 0;
+            padding-left: 18px;
+            color: #e5e7eb;
+            font-size: 0.88rem;
+            line-height: 1.55;
+        }
+        .card-list li {
+            margin-bottom: 6px;
+        }
+        .card-list li::marker {
+            color: var(--card-accent);
+        }
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -323,7 +339,13 @@
         <div class="subtitle">Constellation Precision • Personalized Student Pathways</div>
         <div class="concept-box">
             <p class="intro-text">
-                <strong>A Coordinated Launch: Precise Systems meet Personalized Flight.</strong> My passion for aerospace engineering, background in cybersecurity, and work with Vibe coding drives my approach to launching VIBE Academy. Just like a satellite constellation deploying in tight formation while making micro-adjustments to stay in orbit, a successful startup needs airtight operations that adapt to individual needs. Previously, as an educational consultant, I built a custom, personalized app that allowed students at another startup school to design their own learning paths. That system used an intake profile to automatically generate applied STEM, CTE, and entrepreneurial projects mapped to local state standards—allowing every student to carve out their own trajectory while seamlessly tallying their credits. This interactive dashboard showcases that same AI-driven, student-centered mission in action.
+                <strong>A Coordinated Launch: Precise Systems, Personalized Pathways.</strong> My approach to launching VIBE Academy combines the precision of systems engineering with the flexibility of personalized learning. Drawing on my background in cybersecurity, instructional technology, and aerospace-focused STEM education, I have developed AI-supported applications that translate student interests into individualized STEM, CTE, and entrepreneurial projects aligned with state standards and credit requirements.
+            </p>
+            <p class="intro-text">
+                My experience directly supports VIBE's vision to build a community where students progress at their own pace and find success through Bastion, Odyssey, Forge, and Osprey, while staff members are empowered by AI.
+            </p>
+            <p class="intro-text">
+                My goal is to gradually scale the operational systems that allow each student's pathway to take flight.
             </p>
             <div class="concept-note">*Executive Interview Showcase: This interactive guide illustrates the operational architecture supporting our 15-minute leadership plan.</div>
         </div>
@@ -368,7 +390,15 @@
             <p class="card-summary">Building family trust, student ownership, and founding traditions before Day 1.</p>
             <div class="card-content" onclick="event.stopPropagation()">
                 <img src="eGaming%20Competition.png" alt="VIBE Academy eGaming Competition" class="card-media">
-                <p><strong>Pre-Opening Founding Traditions:</strong> Launching four weeks of community-building events—including student eSports &amp; robotics challenges, family cook-offs, talent showcases, and student entrepreneur markets—to lower affective filters and establish shared ownership before doors open in August 2027.</p>
+                <p><strong>Pre-Opening Founding Traditions:</strong> Launching four weeks of community-building events, including:</p>
+                <ul class="card-list">
+                    <li>eSports</li>
+                    <li>Robotics challenges</li>
+                    <li>Family cook-offs</li>
+                    <li>Digital talent showcases (students' previously made webpages, Scratch games, business pages, slideshows of inventions, etc.)</li>
+                    <li>Student entrepreneur markets</li>
+                </ul>
+                <p>Exposing student talents early on gives the education team a better understanding of how to design future VIBE Academy scholars. Also, with lower affective filters from presenting without being graded or judged, students and studio leads establish shared ownership for the academy before doors open in August 2027.</p>
             </div>
             <div class="action-hint">Tap to inspect community blueprint ▾</div>
         </div>
