@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIBE Academy Founding School Leader Presentation | Payload Deployment</title>
+    <title>VIBE Academy Founding School Leader Presentation</title>
+    <link rel="icon" type="image/jpeg" href="headshot.jpg">
     <style>
         :root {
             --bg-deep: #0b0f19;
-            --card-bg: rgba(17, 24, 39, 0.85);
-            --accent-glow: #38bdf8;
+            --card-bg: rgba(17, 24, 39, 0.88);
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
+            --glow-1: #38bdf8; /* Cyan */
+            --glow-2: #a855f7; /* Purple */
+            --glow-3: #10b981; /* Emerald */
+            --glow-4: #f59e0b; /* Amber */
+            --glow-5: #f43f5e; /* Rose */
+        }
+        * {
+            box-sizing: border-box;
         }
         body {
             margin: 0;
-            padding: 20px;
-            font-family: system-ui, -apple-system, sans-serif;
+            padding: 32px 20px 60px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-deep);
+            background-image: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
             color: var(--text-main);
             display: flex;
             flex-direction: column;
@@ -25,151 +34,365 @@
         }
         header {
             text-align: center;
-            margin-bottom: 30px;
+            max-width: 920px;
+            margin-bottom: 36px;
+        }
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+        .founder-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--glow-1);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
         }
         header h1 {
-            margin: 0 0 10px 0;
-            font-size: 1.8rem;
-            color: #fff;
-            letter-spacing: 0.05em;
-        }
-        header p {
             margin: 0;
-            color: var(--text-muted);
+            font-size: 1.95rem;
+            color: #ffffff;
+            letter-spacing: 0.02em;
+        }
+        .subtitle {
+            margin: 6px 0 18px;
+            color: var(--glow-1);
             font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .concept-box {
+            background: rgba(30, 41, 59, 0.55);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            border-radius: 12px;
+            padding: 18px 22px;
+            text-align: left;
+            backdrop-filter: blur(8px);
+        }
+        .concept-box ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #e2e8f0;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+        .concept-box li {
+            margin-bottom: 8px;
+        }
+        .concept-box li:last-child {
+            margin-bottom: 0;
+        }
+        .concept-note {
+            margin-top: 10px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-style: italic;
         }
         .constellation-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1220px;
         }
         .satellite-card {
             background: var(--card-bg);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
             padding: 24px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
-        .satellite-card:hover {
+        .satellite-card:hover,
+        .satellite-card.active {
             transform: translateY(-5px);
-            border-color: var(--accent-glow);
-            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.2);
+        }
+
+        /* Individual Card Glow Colors */
+        .card-1 { --card-accent: var(--glow-1); }
+        .card-1:hover, .card-1.active {
+            border-color: var(--glow-1);
+            box-shadow: 0 12px 30px -5px rgba(56, 189, 248, 0.35);
+        }
+
+        .card-2 { --card-accent: var(--glow-2); }
+        .card-2:hover, .card-2.active {
+            border-color: var(--glow-2);
+            box-shadow: 0 12px 30px -5px rgba(168, 85, 247, 0.35);
+        }
+
+        .card-3 { --card-accent: var(--glow-3); }
+        .card-3:hover, .card-3.active {
+            border-color: var(--glow-3);
+            box-shadow: 0 12px 30px -5px rgba(16, 185, 129, 0.35);
+        }
+
+        .card-4 { --card-accent: var(--glow-4); }
+        .card-4:hover, .card-4.active {
+            border-color: var(--glow-4);
+            box-shadow: 0 12px 30px -5px rgba(245, 158, 11, 0.35);
+        }
+
+        .card-5 { --card-accent: var(--glow-5); }
+        .card-5:hover, .card-5.active {
+            border-color: var(--glow-5);
+            box-shadow: 0 12px 30px -5px rgba(244, 63, 94, 0.35);
+        }
+
+        .badge {
+            display: inline-block;
+            align-self: flex-start;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--card-accent);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
         }
         .satellite-card h3 {
-            margin-top: 0;
-            color: var(--accent-glow);
-            font-size: 1.2rem;
+            margin: 0 0 8px 0;
+            color: #ffffff;
+            font-size: 1.22rem;
+            line-height: 1.3;
         }
-        .satellite-card p {
+        .card-summary {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             line-height: 1.5;
+            margin: 0 0 14px 0;
         }
         .card-content {
             display: none;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            animation: fadeIn 0.4s ease forwards;
+            margin-top: 10px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            animation: fadeIn 0.35s ease forwards;
         }
         .satellite-card.active .card-content {
             display: block;
         }
-        .badge {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-glow);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 12px;
+        .card-media {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            object-fit: cover;
+            max-height: 230px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #000;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+        .card-content p {
+            color: #e5e7eb;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin: 0 0 12px 0;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 14px 0 6px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 8px;
+            padding: 10px 6px;
+            text-align: center;
+        }
+        .metric-cell strong {
+            display: block;
+            font-size: 1.15rem;
+            color: var(--glow-1);
+        }
+        .metric-cell span {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+        }
+        .eyebrow-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: var(--card-accent);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .download-btn {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--glow-5);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 10px;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .download-btn:hover {
+            opacity: 0.92;
+            transform: scale(1.01);
+        }
+        .contact-block {
+            background: rgba(15, 23, 42, 0.75);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.86rem;
+            line-height: 1.5;
+            margin-bottom: 10px;
         }
         .action-hint {
-            font-size: 0.8rem;
-            color: var(--accent-glow);
-            margin-top: 10px;
-            font-weight: 500;
+            margin-top: auto;
+            padding-top: 12px;
+            font-size: 0.82rem;
+            color: var(--card-accent);
+            font-weight: 600;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>VIBE Academy Founding School Leader Presentation</h1>
-        <p>Starlink Constellation Deployment Analogy: Synchronized Launch & Station-Keeping</p>
+        <div class="header-top">
+            <img src="headshot.jpg" alt="Ms. Desiree C. Michael" class="founder-avatar">
+            <h1>VIBE Academy Founding School Leader Presentation</h1>
+        </div>
+        <div class="subtitle">Constellation Precision • Personalized Student Pathways</div>
+        <div class="concept-box">
+            <ul>
+                <li><strong>Synchronized Launch &amp; Station-Keeping:</strong> Like a satellite constellation deploying in tight formation while making continuous micro-adjustments to stay in orbit, VIBE Academy pairs disciplined operational systems with individualized student pathways.</li>
+                <li><strong>Proven Vibe-Coded Execution:</strong> Modeled on the personalized learning engine I built as an educational consultant, each student completes an intake profile matching their passions, available school hardware/software, and state academic standards.</li>
+                <li><strong>Dynamic STEM, CTE &amp; Entrepreneurship:</strong> Whether a learner needs deeper mathematics foundations or historical context, the system structures applied STEM, CTE, and entrepreneurial projects around their goals—automatically tallying credits as they progress.</li>
+            </ul>
+            <div class="concept-note">*Executive Interview Showcase: This interactive guide illustrates the operational architecture supporting our 15-minute leadership plan.</div>
+        </div>
     </header>
 
     <div class="constellation-grid">
-        <!-- Satellite 1 -->
-        <div class="satellite-card" onclick="toggleCard(this)">
-            <span class="badge">SATELLITE 01</span>
-            <h3>The Launch Sequence</h3>
-            <p>15 Seconds of ME: The VIBE AI Challenge & founding video introduction.</p>
-            <div class="card-content">
-                <p><strong>Audio / Visual Hook:</strong> <em>“Hi, I am the Founder, Ms. Michael, and this is our amazing educator team! We welcome you to Vibe Academy.”</em> Establishes student voice, digital literacy, and personal connection for all 100 founding 9th–10th graders from Day 1.</p>
+        <!-- Card 1 -->
+        <div class="satellite-card card-1" onclick="toggleCard(this)">
+            <span class="badge">PAYLOAD 01 • STUDENT VOICE</span>
+            <h3>Modeling The AI Introduction Challenge</h3>
+            <p class="card-summary">15 Seconds of "Me!": The VIBE AI Challenge &amp; founding video introduction.</p>
+            <div class="card-content" onclick="event.stopPropagation()">
+                <video class="card-media" controls playsinline preload="metadata" id="founderVideo">
+                    <source src="Welcome%20to%20Vibe%20Academy.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <span class="eyebrow-tag">FOUNDING STUDENT EXPERIENCE • GRADES 9–10</span>
+                <p><strong>100 Students. 100 Stories. One VIBE.</strong><br>
+                Every student has the opportunity to create a 15-second AI-assisted introduction to reveal something meaningful about themselves: an aspiration, talent, cultural connection, personal interest, or problem they want to solve.</p>
+                <div class="metrics-grid">
+                    <div class="metric-cell">
+                        <strong>100</strong>
+                        <span>Student voices</span>
+                    </div>
+                    <div class="metric-cell">
+                        <strong>15 sec</strong>
+                        <span>Per creation</span>
+                    </div>
+                    <div class="metric-cell">
+                        <strong>50 min</strong>
+                        <span>At 2 per minute</span>
+                    </div>
+                </div>
             </div>
-            <div class="action-hint">Click to expand payload telemetry ▾</div>
+            <div class="action-hint">Tap to deploy video &amp; challenge metrics ▾</div>
         </div>
 
-        <!-- Satellite 2 -->
-        <div class="satellite-card" onclick="toggleCard(this)">
-            <span class="badge">SATELLITE 02</span>
-            <h3>Community & Presentation Blueprint</h3>
-            <p>Pre-opening traditions, family trust, and the 16-slide operational framework.</p>
-            <div class="card-content">
-                <p><strong>Pillars:</strong> eSports challenges, family cook-offs, student entrepreneur tables, and rigorous 90-day pre-opening milestones designed to build community before doors open in August 2027.</p>
+        <!-- Card 2 -->
+        <div class="satellite-card card-2" onclick="toggleCard(this)">
+            <span class="badge">PAYLOAD 02 • BELONGING &amp; TRUST</span>
+            <h3>Community Engagement &amp; Relationship Building Highlights</h3>
+            <p class="card-summary">Building family trust, student ownership, and founding traditions before Day 1.</p>
+            <div class="card-content" onclick="event.stopPropagation()">
+                <img src="eGaming%20Competition.png" alt="VIBE Academy eGaming Competition" class="card-media">
+                <p><strong>Pre-Opening Founding Traditions:</strong> Launching four weeks of community-building events—including student eSports &amp; robotics challenges, family cook-offs, talent showcases, and student entrepreneur markets—to lower affective filters and establish shared ownership before doors open in August 2027.</p>
             </div>
-            <div class="action-hint">Click to expand payload telemetry ▾</div>
+            <div class="action-hint">Tap to inspect community blueprint ▾</div>
         </div>
 
-        <!-- Satellite 3 -->
-        <div class="satellite-card" onclick="toggleCard(this)">
-            <span class="badge">SATELLITE 03</span>
-            <h3>Six Sigma Operational Leadership</h3>
-            <p>Protecting educator and student time through robust systems engineering.</p>
-            <div class="card-content">
-                <p><strong>Leadership Statement:</strong> <em>“My approach to Six Sigma operational leadership is to identify the points where schools routinely lose time, resources, or instructional quality—and design systems that prevent those losses before they occur. My objective is not simply operational efficiency. It is to protect the time educators need to teach and students need to learn.”</em> Supported by the Substitute Continuity System.</p>
+        <!-- Card 3 -->
+        <div class="satellite-card card-3" onclick="toggleCard(this)">
+            <span class="badge">PAYLOAD 03 • SIX SIGMA OPERATIONS</span>
+            <h3>Six Sigma Operational Leadership Sample</h3>
+            <p class="card-summary">Protecting instructional time through airtight systems engineering.</p>
+            <div class="card-content" onclick="event.stopPropagation()">
+                <img src="Male%20Teacher%201.jpeg" alt="VIBE Academy Faculty Member" class="card-media" style="object-position: top;">
+                <p><strong>Supported by the Substitute Continuity System:</strong> In addition to establishing operational Calendars, LMS, and CMS platforms, consulting has shown me (along with national data) that a large portion of a morning can be lost to weekly inefficiencies in securing, placing, and signing off subs impacting student performance. Therefore, it is <strong>"reputation-critical"</strong> for startups to invest in smooth practices. One way to do this is with a fully designed Substitute Continuity System.</p>
             </div>
-            <div class="action-hint">Click to expand payload telemetry ▾</div>
+            <div class="action-hint">Tap to view operational safeguard ▾</div>
         </div>
 
-        <!-- Satellite 4 -->
-        <div class="satellite-card" onclick="toggleCard(this)">
-            <span class="badge">SATELLITE 04</span>
-            <h3>PDSA Control & Station-Keeping</h3>
-            <p>Plan-Do-Study-Act cycles, weekly operational pulses, and continuous feedback.</p>
-            <div class="card-content">
-                <p><strong>Execution:</strong> Just as ion thrusters make micro-adjustments to keep satellite constellations aligned, our weekly operational pulses, monthly student-work reviews, and quarterly PDSA cycles ensure VIBE Academy maintains flawless orbital alignment.</p>
+        <!-- Card 4 -->
+        <div class="satellite-card card-4" onclick="toggleCard(this)">
+            <span class="badge">PAYLOAD 04 • STATION-KEEPING</span>
+            <h3>PDSA Control &amp; Station-Keeping</h3>
+            <p class="card-summary">Plan-Do-Study-Act cycles, weekly operational pulses, and continuous feedback.</p>
+            <div class="card-content" onclick="event.stopPropagation()">
+                <img src="Teacher%20Male%201.jpeg" alt="VIBE Academy Instructional Coach" class="card-media" style="object-position: top;">
+                <p>As in the <strong>Engineering Design Cycle</strong>, it is critical for an organization to function properly and execute delivery milestones by meeting, listening, and maintaining monthly alignment. Just as ion thrusters make continuous micro-adjustments to keep satellite constellations aligned, our weekly operational pulses, monthly student-work reviews, and quarterly Plan-Do-Study-Act (PDSA) cycles ensure VIBE Academy stays locked on trajectory.</p>
             </div>
-            <div class="action-hint">Click to expand payload telemetry ▾</div>
+            <div class="action-hint">Tap to view PDSA control loop ▾</div>
         </div>
 
-        <!-- Satellite 5 -->
-        <div class="satellite-card" onclick="toggleCard(this)">
-            <span class="badge">SATELLITE 05</span>
-            <h3>Mission Control & Contact</h3>
-            <p>Final review submission details and interview readiness.</p>
-            <div class="card-content">
-                <p><strong>Submission:</strong> Email PDF to Julie Allen at JAllen@vibeacademies.com by Friday, November 20, 2026, at 5 p.m[cite: 20]. Maintained by Ms. Michael, Founder & Educational Technologist.</p>
+        <!-- Card 5 -->
+        <div class="satellite-card card-5" onclick="toggleCard(this)">
+            <span class="badge">PAYLOAD 05 • MISSION CONTROL</span>
+            <h3>Mission Control &amp; Presentation Guide</h3>
+            <p class="card-summary">Executive submission details, leadership contact, and downloadable 16-slide deck.</p>
+            <div class="card-content" onclick="event.stopPropagation()">
+                <img src="@Vibe%20Academy%20Hallway.jpeg" alt="VIBE Academy Campus Hallway" class="card-media">
+                <div class="contact-block">
+                    <strong>Submitted To:</strong><br>
+                    Julie Allen • VIBE Academies<br>
+                    Email: <a href="mailto:JAllen@vibeacademies.com" style="color: #38bdf8;">JAllen@vibeacademies.com</a><br>
+                    Target Deadline: Friday, November 20, 2026 (5:00 PM)
+                </div>
+                <div class="contact-block">
+                    <strong>Founding School Leader Candidate:</strong><br>
+                    Desiree C. Michael, M.S., M.A.<br>
+                    Founder &amp; Educational Technologist • Phoenix, AZ
+                </div>
+                <a href="5%20-VIBE_Founding_Leader_2027_Substitute_Continuity_Final.pdf" download class="download-btn">
+                    ⬇ Download 15-Minute Leadership Presentation Deck (PDF)
+                </a>
             </div>
-            <div class="action-hint">Click to expand payload telemetry ▾</div>
+            <div class="action-hint">Tap to access presentation PDF &amp; contacts ▾</div>
         </div>
     </div>
 
     <script>
         function toggleCard(card) {
+            const wasActive = card.classList.contains('active');
             card.classList.toggle('active');
+
+            // Auto-play video when Card 1 is opened
+            if (card.classList.contains('card-1')) {
+                const video = document.getElementById('founderVideo');
+                if (!wasActive && video) {
+                    video.play().catch(() => {});
+                } else if (wasActive && video) {
+                    video.pause();
+                }
+            }
         }
     </script>
 </body>
