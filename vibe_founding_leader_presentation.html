@@ -16,6 +16,7 @@
             --glow-3: #10b981; /* Emerald */
             --glow-4: #f59e0b; /* Amber */
             --glow-5: #f43f5e; /* Rose */
+            --glow-6: #6366f1; /* Indigo/Slate for Card 6 */
         }
         * {
             box-sizing: border-box;
@@ -36,6 +37,7 @@
             text-align: center;
             max-width: 920px;
             margin-bottom: 36px;
+            width: 100%;
         }
         .header-top {
             display: flex;
@@ -66,30 +68,45 @@
             letter-spacing: 0.04em;
             text-transform: uppercase;
         }
+        /* Watermark-backed Introduction Container */
         .concept-box {
-            background: rgba(30, 41, 59, 0.55);
+            position: relative;
+            background: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.9)), 
+                        url('image_7.png') no-repeat center center;
+            background-size: cover;
             border: 1px solid rgba(148, 163, 184, 0.18);
             border-radius: 12px;
-            padding: 18px 22px;
+            padding: 24px;
             text-align: left;
             backdrop-filter: blur(8px);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
         }
-        .concept-box ul {
+        .concept-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 10%, rgba(11, 15, 25, 0.3) 100%);
+            pointer-events: none;
+        }
+        .intro-text {
+            position: relative;
+            z-index: 1;
             margin: 0;
-            padding-left: 20px;
             color: #e2e8f0;
-            font-size: 0.92rem;
-            line-height: 1.6;
+            font-size: 0.98rem;
+            line-height: 1.65;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
         }
-        .concept-box li {
-            margin-bottom: 8px;
-        }
-        .concept-box li:last-child {
-            margin-bottom: 0;
+        .intro-text strong {
+            color: #ffffff;
+            border-bottom: 1px dashed var(--glow-1);
         }
         .concept-note {
-            margin-top: 10px;
-            font-size: 0.82rem;
+            position: relative;
+            z-index: 1;
+            margin-top: 14px;
+            font-size: 0.8rem;
             color: var(--text-muted);
             font-style: italic;
         }
@@ -149,6 +166,12 @@
             box-shadow: 0 12px 30px -5px rgba(244, 63, 94, 0.35);
         }
 
+        .card-6 { --card-accent: var(--glow-6); }
+        .card-6:hover, .card-6.active {
+            border-color: var(--glow-6);
+            box-shadow: 0 12px 30px -5px rgba(99, 102, 241, 0.35);
+        }
+
         .badge {
             display: inline-block;
             align-self: flex-start;
@@ -165,12 +188,12 @@
         .satellite-card h3 {
             margin: 0 0 8px 0;
             color: #ffffff;
-            font-size: 1.22rem;
+            font-size: 1.15rem;
             line-height: 1.3;
         }
         .card-summary {
             color: var(--text-muted);
-            font-size: 0.92rem;
+            font-size: 0.90rem;
             line-height: 1.5;
             margin: 0 0 14px 0;
         }
@@ -189,13 +212,31 @@
             border-radius: 10px;
             margin-bottom: 14px;
             object-fit: cover;
-            max-height: 230px;
+            max-height: 210px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             background: #000;
         }
+        .grid-media {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .grid-media img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .grid-media img:hover {
+            transform: scale(1.03);
+        }
         .card-content p {
             color: #e5e7eb;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             line-height: 1.55;
             margin: 0 0 12px 0;
         }
@@ -212,11 +253,11 @@
         }
         .metric-cell strong {
             display: block;
-            font-size: 1.15rem;
+            font-size: 1.12rem;
             color: var(--glow-1);
         }
         .metric-cell span {
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             color: var(--text-muted);
         }
         .eyebrow-tag {
@@ -236,7 +277,7 @@
             color: #ffffff;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.90rem;
             padding: 12px 16px;
             border-radius: 8px;
             margin-top: 10px;
@@ -250,14 +291,14 @@
             background: rgba(15, 23, 42, 0.75);
             border-radius: 8px;
             padding: 12px;
-            font-size: 0.86rem;
+            font-size: 0.84rem;
             line-height: 1.5;
             margin-bottom: 10px;
         }
         .action-hint {
             margin-top: auto;
             padding-top: 12px;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--card-accent);
             font-weight: 600;
         }
@@ -276,11 +317,9 @@
         </div>
         <div class="subtitle">Constellation Precision • Personalized Student Pathways</div>
         <div class="concept-box">
-            <ul>
-                <li><strong>Synchronized Launch &amp; Station-Keeping:</strong> Like a satellite constellation deploying in tight formation while making continuous micro-adjustments to stay in orbit, VIBE Academy pairs disciplined operational systems with individualized student pathways.</li>
-                <li><strong>Proven Vibe-Coded Execution:</strong> Modeled on the personalized learning engine I built as an educational consultant, each student completes an intake profile matching their passions, available school hardware/software, and state academic standards.</li>
-                <li><strong>Dynamic STEM, CTE &amp; Entrepreneurship:</strong> Whether a learner needs deeper mathematics foundations or historical context, the system structures applied STEM, CTE, and entrepreneurial projects around their goals—automatically tallying credits as they progress.</li>
-            </ul>
+            <p class="intro-text">
+                <strong>A Coordinated Launch: Precise Systems meet Personalized Flight.</strong> My passion for aerospace engineering, background in cybersecurity, and work with Vibe coding drives my approach to launching VIBE Academy. Just like a satellite constellation deploying in tight formation while making micro-adjustments to stay in orbit, a successful startup needs airtight operations that adapt to individual needs. Previously, as an educational consultant, I built a custom, personalized app that allowed students at another startup school to design their own learning paths. That system used an intake profile to automatically generate applied STEM, CTE, and entrepreneurial projects mapped to local state standards—allowing every student to carve out their own trajectory while seamlessly tallying their credits. This interactive dashboard is a showcase of that same tech-driven, student-centered mission in action.
+            </p>
             <div class="concept-note">*Executive Interview Showcase: This interactive guide illustrates the operational architecture supporting our 15-minute leadership plan.</div>
         </div>
     </header>
@@ -336,7 +375,7 @@
             <p class="card-summary">Protecting instructional time through airtight systems engineering.</p>
             <div class="card-content" onclick="event.stopPropagation()">
                 <img src="Male%20Teacher%201.jpeg" alt="VIBE Academy Faculty Member" class="card-media" style="object-position: top;">
-                <p><strong>Supported by the Substitute Continuity System:</strong> In addition to establishing operational Calendars, LMS, and CMS platforms, consulting has shown me (along with national data) that a large portion of a morning can be lost to weekly inefficiencies in securing, placing, and signing off subs impacting student performance. Therefore, it is <strong>"reputation-critical"</strong> for startups to invest in smooth practices. One way to do this is with a fully designed Substitute Continuity System.</p>
+                <p><strong>Supported by the Substitute Continuity System:</strong> In addition to establishing operational Calendars, LMS, and CMS platforms, consulting has shown me (along with national data) that a large portion of an organization's morning planning can be lost to the daily inefficiencies in securing, placing, and signing in subs, directly impacting student performance. Therefore, it is <strong>"reputation-critical"</strong> for school startups to invest in smooth practices. One way to do this is with a fully designed Substitute Continuity System.</p>
             </div>
             <div class="action-hint">Tap to view operational safeguard ▾</div>
         </div>
@@ -370,12 +409,32 @@
                     <strong>Founding School Leader Candidate:</strong><br>
                     Desiree C. Michael, M.S., M.A.<br>
                     Founder &amp; Educational Technologist • Phoenix, AZ
+                    Phone &amp; (602) 785-6402 • (910) 302-9883
                 </div>
                 <a href="5%20-VIBE_Founding_Leader_2027_Substitute_Continuity_Final.pdf" download class="download-btn">
                     ⬇ Download 15-Minute Leadership Presentation Deck (PDF)
                 </a>
             </div>
             <div class="action-hint">Tap to access presentation PDF &amp; contacts ▾</div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="satellite-card card-6" onclick="toggleCard(this)">
+            <span class="badge">PAYLOAD 06 • APPLIED TIMELINES</span>
+            <h3>Launching Personalized Applied Learning</h3>
+            <p class="card-summary">Visual GANTT schedules, RACI governance, and timeline alignments.</p>
+            <div class="card-content" onclick="event.stopPropagation()">
+                <img src="Student%20(2).jpeg" alt="Learner in Applied Lab" class="card-media" style="object-position: center 25%;">
+                
+                <span class="eyebrow-tag">Operational Accountability</span>
+                <div class="grid-media">
+                    <img src="GANTT%20Chart.png" alt="90-Day GANTT Chart Track" onclick="window.open('GANTT%20Chart.png', '_blank')" title="Click to view full image">
+                    <img src="RACI%20Chart.png" alt="Strategic RACI Matrix Accountability" onclick="window.open('RACI%20Chart.png', '_blank')" title="Click to view full image">
+                </div>
+                <p><strong>Applying Structured Milestones:</strong> Incorporating Vibe-Coded educational pathways. By deploying custom-engineered educational technologies (similar to my prior consultant-designed student apps), VIBE allows students to tailor their own learning projects based on their strengths, school equipment, and interests. </p>
+                <p>Whether focusing heavily on mathematics standards or historical technology, this GANTT timeline and RACI accountability map helps us track continuous student metrics as they navigate custom learning arcs.</p>
+            </div>
+            <div class="action-hint">Tap to view execution matrices ▾</div>
         </div>
     </div>
 
