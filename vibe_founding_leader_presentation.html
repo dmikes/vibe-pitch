@@ -16,7 +16,7 @@
             --glow-3: #10b981; /* Emerald */
             --glow-4: #f59e0b; /* Amber */
             --glow-5: #f43f5e; /* Rose */
-            --glow-6: #6366f1; /* Indigo/Slate for Card 6 */
+            --glow-6: #6366f1; /* Indigo/Slate */
         }
         * {
             box-sizing: border-box;
@@ -216,6 +216,11 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             background: #000;
         }
+        video.card-media {
+            max-height: 380px;
+            object-fit: contain;
+            background: #000;
+        }
         .grid-media {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -392,35 +397,9 @@
             <div class="action-hint">Tap to view PDSA control loop ▾</div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="satellite-card card-5" onclick="toggleCard(this)">
-            <span class="badge">PAYLOAD 05 • MISSION CONTROL</span>
-            <h3>Mission Control &amp; Presentation Guide</h3>
-            <p class="card-summary">Executive submission details, leadership contact, and downloadable 16-slide deck.</p>
-            <div class="card-content" onclick="event.stopPropagation()">
-                <img src="@Vibe%20Academy%20Hallway.jpeg" alt="VIBE Academy Campus Hallway" class="card-media">
-                <div class="contact-block">
-                    <strong>Submitted To:</strong><br>
-                    Julie Allen • VIBE Academies<br>
-                    Email: <a href="mailto:JAllen@vibeacademies.com" style="color: #38bdf8;">JAllen@vibeacademies.com</a><br>
-                    Target Deadline: Friday, November 20, 2026 (5:00 PM)
-                </div>
-                <div class="contact-block">
-                    <strong>Founding School Leader Candidate:</strong><br>
-                    Desiree C. Michael, M.S., M.A.<br>
-                    Founder &amp; Educational Technologist • Phoenix, AZ
-                    Phone &amp; (602) 785-6402 • (910) 302-9883
-                </div>
-                <a href="5%20-VIBE_Founding_Leader_2027_Substitute_Continuity_Final.pdf" download class="download-btn">
-                    ⬇ Download 15-Minute Leadership Presentation Deck (PDF)
-                </a>
-            </div>
-            <div class="action-hint">Tap to access presentation PDF &amp; contacts ▾</div>
-        </div>
-
-        <!-- Card 6 -->
+        <!-- Card 5 (Blue/Indigo - Applied Timelines) -->
         <div class="satellite-card card-6" onclick="toggleCard(this)">
-            <span class="badge">PAYLOAD 06 • APPLIED TIMELINES</span>
+            <span class="badge">PAYLOAD 05 • APPLIED TIMELINES</span>
             <h3>Launching Personalized Applied Learning</h3>
             <p class="card-summary">Visual GANTT schedules, RACI governance, and timeline alignments.</p>
             <div class="card-content" onclick="event.stopPropagation()">
@@ -435,6 +414,32 @@
                 <p>Whether focusing heavily on mathematics standards or historical technology, this GANTT timeline and RACI accountability map helps us track continuous student metrics as they navigate custom learning arcs.</p>
             </div>
             <div class="action-hint">Tap to view execution matrices ▾</div>
+        </div>
+
+        <!-- Card 6 (Red/Rose - Mission Control & Presentation Guide) -->
+        <div class="satellite-card card-5" onclick="toggleCard(this)">
+            <span class="badge">PAYLOAD 06 • MISSION CONTROL</span>
+            <h3>Mission Control &amp; Presentation Guide</h3>
+            <p class="card-summary">Executive submission details, leadership contact, and downloadable 16-slide deck.</p>
+            <div class="card-content" onclick="event.stopPropagation()">
+                <img src="@Vibe%20Academy%20Hallway.jpeg" alt="VIBE Academy Campus Hallway" class="card-media">
+                <div class="contact-block">
+                    <strong>Submitted To:</strong><br>
+                    Julie Allen • VIBE Academies<br>
+                    Email: <a href="mailto:JAllen@vibeacademies.com" style="color: #38bdf8;">JAllen@vibeacademies.com</a><br>
+                    Target Deadline: Friday, November 20, 2026 (5:00 PM)
+                </div>
+                <div class="contact-block">
+                    <strong>Founding School Leader Candidate:</strong><br>
+                    Desiree C. Michael, M.S., M.A.<br>
+                    Founder &amp; Educational Technologist • Phoenix, AZ<br>
+                    Phone &amp; (602) 785-6402 • (910) 302-9883
+                </div>
+                <a href="5%20-VIBE_Founding_Leader_2027_Substitute_Continuity_Final.pdf" download class="download-btn">
+                    ⬇ Download 15-Minute Leadership Presentation Deck (PDF)
+                </a>
+            </div>
+            <div class="action-hint">Tap to access presentation PDF &amp; contacts ▾</div>
         </div>
     </div>
 
