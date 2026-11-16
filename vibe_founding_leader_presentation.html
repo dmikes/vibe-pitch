@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBE Academy Founding School Leader Presentation | Payload Deployment</title>
+    <style>
+        :root {
+            --bg-deep: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.85);
+            --accent-glow: #38bdf8;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+            color: #fff;
+            letter-spacing: 0.05em;
+        }
+        header p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .constellation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .satellite-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .satellite-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-glow);
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.2);
+        }
+        .satellite-card h3 {
+            margin-top: 0;
+            color: var(--accent-glow);
+            font-size: 1.2rem;
+        }
+        .satellite-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .card-content {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.4s ease forwards;
+        }
+        .satellite-card.active .card-content {
+            display: block;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-glow);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .action-hint {
+            font-size: 0.8rem;
+            color: var(--accent-glow);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>VIBE Academy Founding School Leader Presentation</h1>
+        <p>Starlink Constellation Deployment Analogy: Synchronized Launch & Station-Keeping</p>
+    </header>
+
+    <div class="constellation-grid">
+        <!-- Satellite 1 -->
+        <div class="satellite-card" onclick="toggleCard(this)">
+            <span class="badge">SATELLITE 01</span>
+            <h3>The Launch Sequence</h3>
+            <p>15 Seconds of ME: The VIBE AI Challenge & founding video introduction.</p>
+            <div class="card-content">
+                <p><strong>Audio / Visual Hook:</strong> <em>“Hi, I am the Founder, Ms. Michael, and this is our amazing educator team! We welcome you to Vibe Academy.”</em> Establishes student voice, digital literacy, and personal connection for all 100 founding 9th–10th graders from Day 1.</p>
+            </div>
+            <div class="action-hint">Click to expand payload telemetry ▾</div>
+        </div>
+
+        <!-- Satellite 2 -->
+        <div class="satellite-card" onclick="toggleCard(this)">
+            <span class="badge">SATELLITE 02</span>
+            <h3>Community & Presentation Blueprint</h3>
+            <p>Pre-opening traditions, family trust, and the 16-slide operational framework.</p>
+            <div class="card-content">
+                <p><strong>Pillars:</strong> eSports challenges, family cook-offs, student entrepreneur tables, and rigorous 90-day pre-opening milestones designed to build community before doors open in August 2027.</p>
+            </div>
+            <div class="action-hint">Click to expand payload telemetry ▾</div>
+        </div>
+
+        <!-- Satellite 3 -->
+        <div class="satellite-card" onclick="toggleCard(this)">
+            <span class="badge">SATELLITE 03</span>
+            <h3>Six Sigma Operational Leadership</h3>
+            <p>Protecting educator and student time through robust systems engineering.</p>
+            <div class="card-content">
+                <p><strong>Leadership Statement:</strong> <em>“My approach to Six Sigma operational leadership is to identify the points where schools routinely lose time, resources, or instructional quality—and design systems that prevent those losses before they occur. My objective is not simply operational efficiency. It is to protect the time educators need to teach and students need to learn.”</em> Supported by the Substitute Continuity System.</p>
+            </div>
+            <div class="action-hint">Click to expand payload telemetry ▾</div>
+        </div>
+
+        <!-- Satellite 4 -->
+        <div class="satellite-card" onclick="toggleCard(this)">
+            <span class="badge">SATELLITE 04</span>
+            <h3>PDSA Control & Station-Keeping</h3>
+            <p>Plan-Do-Study-Act cycles, weekly operational pulses, and continuous feedback.</p>
+            <div class="card-content">
+                <p><strong>Execution:</strong> Just as ion thrusters make micro-adjustments to keep satellite constellations aligned, our weekly operational pulses, monthly student-work reviews, and quarterly PDSA cycles ensure VIBE Academy maintains flawless orbital alignment.</p>
+            </div>
+            <div class="action-hint">Click to expand payload telemetry ▾</div>
+        </div>
+
+        <!-- Satellite 5 -->
+        <div class="satellite-card" onclick="toggleCard(this)">
+            <span class="badge">SATELLITE 05</span>
+            <h3>Mission Control & Contact</h3>
+            <p>Final review submission details and interview readiness.</p>
+            <div class="card-content">
+                <p><strong>Submission:</strong> Email PDF to Julie Allen at JAllen@vibeacademies.com by Friday, November 20, 2026, at 5 p.m[cite: 20]. Maintained by Ms. Michael, Founder & Educational Technologist.</p>
+            </div>
+            <div class="action-hint">Click to expand payload telemetry ▾</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCard(card) {
+            card.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
