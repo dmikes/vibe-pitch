@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desiree C. Michael, M.S., M.A. | Digital Leadership CV</title>
+    <!-- Favicon linked to headshot -->
+    <link rel="icon" type="image/jpeg" href="headshot.jpg">
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    colors: {
+                        spaceDeep: '#0b0f19',
+                        cardSlate: 'rgba(17, 24, 39, 0.88)',
+                        glowCyan: '#38bdf8',
+                        glowPurple: '#a855f7',
+                        glowGold: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Deep Aerospace Cosmos Backdrop */
+        body {
+            background-color: #0b0f19;
+            background-image: 
+                radial-gradient(circle at 20% 12%, rgba(56, 189, 248, 0.14) 0%, transparent 45%),
+                radial-gradient(circle at 82% 18%, rgba(245, 158, 11, 0.11) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(56, 189, 248, 0.08) 0%, transparent 55%);
+            color: #f3f4f6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Subtle Starry Cosmos Overlay */
+        .cosmos-stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image:
+                radial-gradient(1.5px 1.5px at 8% 14%, rgba(255, 255, 255, 0.65), transparent),
+                radial-gradient(1px 1px at 18% 42%, rgba(56, 189, 248, 0.7), transparent),
+                radial-gradient(1.5px 1.5px at 29% 22%, rgba(255, 255, 255, 0.5), transparent),
+                radial-gradient(1px 1px at 41% 68%, rgba(245, 158, 11, 0.6), transparent),
+                radial-gradient(1.5px 1.5px at 54% 16%, rgba(255, 255, 255, 0.6), transparent),
+                radial-gradient(1px 1px at 67% 37%, rgba(56, 189, 248, 0.65), transparent),
+                radial-gradient(1.5px 1.5px at 78% 12%, rgba(255, 255, 255, 0.7), transparent),
+                radial-gradient(1px 1px at 88% 54%, rgba(245, 158, 11, 0.65), transparent),
+                radial-gradient(1.5px 1.5px at 93% 28%, rgba(255, 255, 255, 0.5), transparent),
+                radial-gradient(1px 1px at 14% 79%, rgba(255, 255, 255, 0.45), transparent),
+                radial-gradient(1.5px 1.5px at 61% 84%, rgba(56, 189, 248, 0.55), transparent),
+                radial-gradient(1px 1px at 82% 88%, rgba(245, 158, 11, 0.5), transparent);
+            animation: twinkleDrift 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkleDrift {
+            0% { opacity: 0.65; transform: translateY(0px); }
+            100% { opacity: 1; transform: translateY(-6px); }
+        }
+
+        /* Glassmorphic Card with Cyan-to-Gold Gradient Border Lining */
+        .cv-card {
+            position: relative;
+            background: rgba(15, 23, 42, 0.88);
+            border: 1px solid transparent;
+            background-image: 
+                linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.92)),
+                linear-gradient(135deg, rgba(56, 189, 248, 0.42), rgba(148, 163, 184, 0.16) 50%, rgba(245, 158, 11, 0.42));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 10px 30px -10px rgba(2, 6, 23, 0.85);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), 
+                        box-shadow 0.3s ease, 
+                        background-image 0.3s ease;
+        }
+
+        .cv-card:hover,
+        .cv-card.active {
+            transform: translateY(-5px);
+            background-image: 
+                linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)),
+                linear-gradient(135deg, #38bdf8 0%, #818cf8 48%, #f59e0b 100%);
+            box-shadow: 
+                -6px 12px 28px -8px rgba(56, 189, 248, 0.28),
+                6px 12px 28px -8px rgba(245, 158, 11, 0.28);
+        }
+
+        /* Smooth Accordion Drawer Reveal */
+        .drawer-content {
+            display: none;
+            animation: drawerFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .cv-card.active .drawer-content {
+            display: block;
+        }
+        .cv-card.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+        .chevron-icon {
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+
+        @keyframes drawerFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-sky-400/30 selection:text-white">
+
+    <!-- Subtle Starry Cosmos Layer -->
+    <div class="cosmos-stars" aria-hidden="true"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-20">
+
+        <!-- Hero Header Section -->
+        <header class="text-center max-w-4xl mx-auto mb-12">
+            <!-- Top Eyebrow Pill -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-sky-400/35 text-sky-400 text-xs font-bold tracking-widest uppercase mb-5 shadow-md">
+                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-sky-400 to-amber-400 animate-pulse"></span>
+                Digital Leadership Curriculum Vitae
+            </div>
+
+            <!-- Candidate Name & Credentials -->
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3">
+                Desiree C. Michael, <span class="bg-gradient-to-r from-sky-400 via-sky-300 to-amber-300 bg-clip-text text-transparent">M.S., M.A.</span>
+            </h1>
+
+            <!-- Executive Subtitle -->
+            <p class="text-sm sm:text-base font-semibold tracking-wider uppercase text-sky-300/90 mb-6">
+                Digital Leadership CV &amp; Applied Systems Portfolio
+            </p>
+
+            <!-- Hero Summary Glass Panel -->
+            <div class="rounded-2xl bg-slate-900/80 border border-slate-700/70 p-6 sm:p-7 text-left shadow-2xl backdrop-blur-md">
+                <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-3">
+                    Systems-driven Founding School Leader, Founder/CEO, and Educational Technologist bridging <strong class="text-white border-b border-dashed border-sky-400">aerospace-grade operational precision</strong> with <strong class="text-white border-b border-dashed border-amber-400">AI-empowered personalized learning</strong>. Proven track record launching innovative schools, managing multi-million-dollar public budgets, securing competitive state grants, and scaling student-centered STEM and entrepreneurial pathways across domestic and international communities.
+                </p>
+                <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-800 text-xs text-slate-400">
+                    <span>📍 Phoenix, Arizona • Domestic &amp; International Leadership</span>
+                    <span class="italic text-amber-300/90">Click any card below to expand verified credentials, press, &amp; fiscal metrics</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 3-Column Responsive Grid -->
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-7 items-start">
+
+            <!-- ========================================================= -->
+            <!-- CARD 1: EXECUTIVE PROFILE & CREDENTIALS                   -->
+            <!-- ========================================================= -->
+            <article class="cv-card rounded-2xl p-6 sm:p-7 cursor-pointer flex flex-col" onclick="toggleCard(this)">
+                <!-- Badge -->
+                <span class="self-start px-3 py-1 rounded-lg bg-sky-400/10 border border-sky-400/30 text-sky-400 text-xs font-bold tracking-wider uppercase mb-4">
+                    CARD 1 • EXECUTIVE PROFILE
+                </span>
+
+                <!-- Circular Headshot + Name/Title -->
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="relative w-16 h-16 shrink-0">
+                        <img 
+                            src="headshot.jpg" 
+                            alt="Desiree C. Michael, M.S., M.A." 
+                            class="w-16 h-16 rounded-full object-cover border-2 border-sky-400 shadow-[0_0_16px_rgba(56,189,248,0.4)]"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <!-- Monogram Fallback DM -->
+                        <div style="display: none;" class="w-16 h-16 rounded-full bg-gradient-to-br from-sky-500 to-indigo-700 border-2 border-sky-400 items-center justify-center text-white font-extrabold text-xl shadow-[0_0_16px_rgba(56,189,248,0.4)]">
+                            DM
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-white leading-snug">Desiree C. Michael, M.S., M.A.</h2>
+                        <p class="text-xs text-sky-300 font-medium mt-0.5">Founding School Leader &amp; Applied Learning Architect</p>
+                    </div>
+                </div>
+
+                <!-- Direct Links Always Accessible on Card Face -->
+                <div class="space-y-2 mb-4" onclick="event.stopPropagation()">
+                    <a href="https://desireemichael.com" target="_blank" rel="noopener noreferrer"
+                       class="flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-sky-400 text-xs sm:text-sm font-medium text-white transition">
+                        <span>🌐 Personal Webpage</span>
+                        <span class="text-sky-400 text-xs font-bold">desireemichael.com ↗</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/desireemichael" target="_blank" rel="noopener noreferrer"
+                       class="flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-sky-400 text-xs sm:text-sm font-medium text-white transition">
+                        <span>💼 LinkedIn Articles &amp; Profile</span>
+                        <span class="text-sky-400 text-xs font-bold">Connect ↗</span>
+                    </a>
+
+                    <a href="Desiree_Michael_Resume.pdf" download
+                       class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-400 to-amber-300 hover:from-sky-300 hover:to-amber-200 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-sky-500/20 transition transform hover:scale-[1.01]">
+                        <span>⬇ Download Executive Resume (PDF)</span>
+                    </a>
+                </div>
+
+                <!-- Expandable Drawer Content -->
+                <div class="drawer-content pt-4 border-t border-slate-700/70 space-y-3.5" onclick="event.stopPropagation()">
+                    <div class="rounded-xl bg-slate-950/75 border border-sky-400/25 p-3.5 space-y-2 text-xs sm:text-sm text-slate-200">
+                        <div class="text-[11px] font-bold uppercase tracking-wider text-sky-400">Degrees, State Credentials &amp; Civic Boards</div>
+                        <ul class="space-y-1.5 text-slate-300">
+                            <li><strong class="text-white">M.S., Instructional Design &amp; Technology</strong>, FSU</li>
+                            <li><strong class="text-white">M.A., Teaching Techniques</strong>, JFKU</li>
+                            <li><strong class="text-white">B.A., International Relations</strong>, Lehigh University</li>
+                            <li><strong class="text-sky-300">California Administrative Services Credential</strong> &amp; <strong class="text-sky-300">California Teaching Credentials</strong></li>
+                            <li><strong class="text-amber-300">Appointee:</strong> Family and Children’s Trust Commission &amp; Antioch Design Review Board</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl bg-slate-950/75 border border-amber-400/25 p-3.5 space-y-1.5 text-xs text-slate-300">
+                        <div class="text-[11px] font-bold uppercase tracking-wider text-amber-300">Internationalism, Languages &amp; Global Footprint</div>
+                        <p><strong class="text-white">Languages:</strong> Greek (Intermediate), German (Intermediate), French (Level 1), Arabic (Level Zero).</p>
+                        <p><strong class="text-white">North America:</strong> Contiguous US &amp; HI, Canada &amp; Mexico • <strong class="text-white">Europe:</strong> Portugal to Dunkirk, the Bosporus, and Cyprus • <strong class="text-white">Asia &amp; Africa:</strong> Korea, Japan, Middle East (Turkey to UAE), Morocco, Egypt, Malawi &amp; Mozambique.</p>
+                    </div>
+                </div>
+
+                <!-- Card Footer Prompt -->
+                <div class="mt-auto pt-4 text-xs font-semibold text-cyan-300 flex items-center justify-between">
+                    <span>Click to expand credentials &amp; global reach</span>
+                    <span class="chevron-icon">▾</span>
+                </div>
+            </article>
+
+            <!-- ========================================================= -->
+            <!-- CARD 2: APPLIED INNOVATION & MEDIA PORTFOLIO              -->
+            <!-- ========================================================= -->
+            <article class="cv-card rounded-2xl p-6 sm:p-7 cursor-pointer flex flex-col" onclick="toggleCard(this)">
+                <!-- Badge -->
+                <span class="self-start px-3 py-1 rounded-lg bg-purple-500/10 border border-purple-400/30 text-purple-300 text-xs font-bold tracking-wider uppercase mb-4">
+                    CARD 2 • PORTFOLIO
+                </span>
+
+                <!-- Title -->
+                <h2 class="text-xl font-bold text-white leading-snug mb-2.5">
+                    Applied Innovation &amp; Media Portfolio
+                </h2>
+
+                <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                    Student-engineered 3D-printed community and aerospace hardware, micro-learning platforms, national television press, and state EdTech keynotes.
+                </p>
+
+                <!-- Verified VIBE Presentation Portfolio Links -->
+                <div class="space-y-2.5 mb-2" onclick="event.stopPropagation()">
+                    <!-- 1. WJLA / ABC News -->
+                    <a href="https://wjla.com/news/local/middle-schoolers-gift-troops-holidays-christmas-afghanistan-soldiers-virginia-alexandria-city-public-school-students-dmv-desiree-michael-army-air-force-creating-phone-holders-overseas" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="block p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-sky-400 transition group">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="text-[11px] font-bold text-sky-400 uppercase tracking-wide">ABC News / WJLA Feature</span>
+                            <span class="text-xs text-slate-400 group-hover:text-sky-300">↗</span>
+                        </div>
+                        <h3 class="text-xs sm:text-sm font-bold text-white mt-0.5 group-hover:text-sky-200">
+                            3D-Printing Phone Holders for Troops Overseas
+                        </h3>
+                    </a>
+
+                    <!-- 2. BubbleBunnys Student Choice Reel -->
+                    <a href="https://www.instagram.com/thebubblebunnys/reel/DaIzgFsNQD2/" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="block p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-amber-400 transition group">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wide">Student Choice Winner</span>
+                            <span class="text-xs text-slate-400 group-hover:text-amber-300">↗</span>
+                        </div>
+                        <h3 class="text-xs sm:text-sm font-bold text-white mt-0.5 group-hover:text-amber-200">
+                            BubbleBunnys: Voted Best Product by Students
+                        </h3>
+                    </a>
+
+                    <!-- 3. VSTE Annual Conference -->
+                    <a href="https://2021vsteannualconference.sched.com/event/pjPP" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="block p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-sky-400 transition group">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="text-[11px] font-bold text-purple-300 uppercase tracking-wide">EdTech Conference Keynote</span>
+                            <span class="text-xs text-slate-400 group-hover:text-purple-200">↗</span>
+                        </div>
+                        <h3 class="text-xs sm:text-sm font-bold text-white mt-0.5 group-hover:text-purple-200">
+                            VSTE Annual Conference Session
+                        </h3>
+                    </a>
+
+                    <!-- 4. ACS Ethos Volume 8 -->
+                    <a href="https://www.scribd.com/document/46808098/ACS-Ethos-8" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="block p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-amber-400 transition group">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wide">Published Article • Scribd</span>
+                            <span class="text-xs text-slate-400 group-hover:text-amber-200">↗</span>
+                        </div>
+                        <h3 class="text-xs sm:text-sm font-bold text-white mt-0.5 group-hover:text-amber-200">
+                            ACS Ethos Volume 8 Publication
+                        </h3>
+                    </a>
+                </div>
+
+                <!-- Expandable Drawer Content -->
+                <div class="drawer-content pt-4 mt-2 border-t border-slate-700/70 space-y-2.5 text-xs text-slate-300" onclick="event.stopPropagation()">
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-purple-300">Signature Applied Learning Initiatives</div>
+                    <ul class="space-y-2 leading-relaxed">
+                        <li class="flex items-start gap-2">
+                            <span class="text-sky-400 font-bold">▸</span>
+                            <span><strong class="text-white">The 30-Second Approach:</strong> Rapid diagnostic engagement protocol pairing real-world prototypes with immediate student curiosity and mastery.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-amber-400 font-bold">▸</span>
+                            <span><strong class="text-white">MIT NuVu Studio Lab &amp; GDC Delegation:</strong> Studio-based design thinking immersion and leading a student delegation to the Game Developers Conference for accredited English journalism &amp; technical writing.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-sky-400 font-bold">▸</span>
+                            <span><strong class="text-white">LightHawk Aviation &amp; Steve Forbes Forum:</strong> Aerial environmental conservation research flights and student leadership participation in the <em>Capitalism in Action</em> forum.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card Footer Prompt -->
+                <div class="mt-auto pt-4 text-xs font-semibold text-purple-300 flex items-center justify-between">
+                    <span>Click to expand applied learning initiatives</span>
+                    <span class="chevron-icon">▾</span>
+                </div>
+            </article>
+
+            <!-- ========================================================= -->
+            <!-- CARD 3: FISCAL STEWARDSHIP & RESOURCE ARCHITECTURE        -->
+            <!-- ========================================================= -->
+            <article class="cv-card rounded-2xl p-6 sm:p-7 cursor-pointer flex flex-col" onclick="toggleCard(this)">
+                <!-- Badge -->
+                <span class="self-start px-3 py-1 rounded-lg bg-amber-500/10 border border-amber-400/35 text-amber-300 text-xs font-bold tracking-wider uppercase mb-4">
+                    CARD 3 • FISCAL STEWARDSHIP
+                </span>
+
+                <!-- Title -->
+                <h2 class="text-xl font-bold text-white leading-snug mb-3">
+                    Fiscal Stewardship &amp; Resource Architecture
+                </h2>
+
+                <!-- Main Card Paragraph -->
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                    As Founder and CEO of <strong class="text-white">BubbleBunnys LLC</strong>, I steward both internal founder funds and outside investment, building on public-sector fiduciary service as an appointee to the <strong class="text-amber-300">Family and Children’s Trust Commission</strong> and monitoring school district budgets up to <strong class="text-white">$2.3 Million</strong> for one of California’s largest districts (<strong class="text-white">Mt. Diablo USD</strong>). Serving as Grant Writer and Procurement Officer, I secured a <strong class="text-amber-300">$150K</strong> state grant for Northern California’s first charter school alongside over <strong class="text-white">$20K</strong> in additional grants, procured technologies from <strong class="text-sky-300">NVIDIA</strong>, <strong class="text-sky-300">ThingLink</strong>, and others, and designed departmental budgets achieving up to <strong class="text-amber-300">$180K per year</strong> in organizational savings.
+                </p>
+
+                <!-- Expandable Drawer Content -->
+                <div class="drawer-content pt-4 border-t border-slate-700/70 space-y-4" onclick="event.stopPropagation()">
+                    <!-- 4-Box Itemized Fiscal Metrics Grid -->
+                    <div class="grid grid-cols-2 gap-2.5 text-center bg-slate-950/85 border border-amber-400/25 rounded-xl p-3">
+                        <div class="p-2 rounded-lg bg-slate-900/80 border border-slate-800">
+                            <strong class="block text-base sm:text-lg font-extrabold text-amber-400">$2.3M</strong>
+                            <span class="text-[11px] text-slate-400">Budget Oversight</span>
+                        </div>
+                        <div class="p-2 rounded-lg bg-slate-900/80 border border-slate-800">
+                            <strong class="block text-base sm:text-lg font-extrabold text-sky-400">$150K</strong>
+                            <span class="text-[11px] text-slate-400">Charter Startup Grant</span>
+                        </div>
+                        <div class="p-2 rounded-lg bg-slate-900/80 border border-slate-800">
+                            <strong class="block text-base sm:text-lg font-extrabold text-amber-400">$180K/yr</strong>
+                            <span class="text-[11px] text-slate-400">Departmental Savings</span>
+                        </div>
+                        <div class="p-2 rounded-lg bg-slate-900/80 border border-slate-800">
+                            <strong class="block text-base sm:text-lg font-extrabold text-sky-400">$20K+</strong>
+                            <span class="text-[11px] text-slate-400">Additional Grants</span>
+                        </div>
+                    </div>
+
+                    <!-- Governance & Procurement Breakdown -->
+                    <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
+                        <li class="flex items-start gap-2">
+                            <span class="text-amber-400 font-bold">▸</span>
+                            <span><strong class="text-white">Fiduciary &amp; Civic Governance:</strong> Appointed commissioner on the <em>Family and Children’s Trust Commission</em> and multi-site budget monitor for <em>Mt. Diablo Unified School District</em> ($2.3M portfolio).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-sky-400 font-bold">▸</span>
+                            <span><strong class="text-white">Enterprise EdTech Procurement:</strong> Negotiated and deployed classroom hardware, immersive media, and STEM lab infrastructure with <strong class="text-white">NVIDIA</strong>, <strong class="text-white">ThingLink</strong>, and specialized STEM vendors.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-amber-400 font-bold">▸</span>
+                            <span><strong class="text-white">Zero-Waste Budget Architecture:</strong> Re-engineered departmental resource allocation to save up to $180,000 annually while expanding student access to emerging technologies.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card Footer Prompt -->
+                <div class="mt-auto pt-4 text-xs font-semibold text-amber-400 flex items-center justify-between">
+                    <span>Click to expand fiscal &amp; procurement impact</span>
+                    <img 
+                        src="GoldenMoneyChunk_2.jpeg" 
+                        alt="GoldenChunk" 
+                        class="w-6 h-6 rounded-full object-cover border border-amber-400/60 shadow-sm chevron-icon"
+                        onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cdefs%3E%3CradialGradient id=%22goldGrad%22 cx=%2240%25%22 cy=%2235%25%22 r=%2265%25%22%3E%3Cstop offset=%220%25%22 stop-color=%22%23fef08a%22/%3E%3Cstop offset=%2245%25%22 stop-color=%22%23f59e0b%22/%3E%3Cstop offset=%22100%25%22 stop-color=%22%2392400e%22/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%230b0f19%22/%3E%3Ccircle cx=%2250%22 cy=%2213%22 r=%225%22 fill=%22none%22 stroke=%22%23fbbf24%22 stroke-width=%223%22/%3E%3Cpolygon points=%2233,26 37,16 44,23%22 fill=%22url(%23goldGrad)%22/%3E%3Cpolygon points=%2267,26 63,16 56,23%22 fill=%22url(%23goldGrad)%22/%3E%3Cellipse cx=%2250%22 cy=%2233%22 rx=%2217%22 ry=%2214%22 fill=%22url(%23goldGrad)%22/%3E%3Ccircle cx=%2232%22 cy=%2237%22 r=%229%22 fill=%22url(%23goldGrad)%22/%3E%3Ccircle cx=%2268%22 cy=%2237%22 r=%229%22 fill=%22url(%23goldGrad)%22/%3E%3Ccircle cx=%2243%22 cy=%2231%22 r=%222.8%22 fill=%22%23090d16%22/%3E%3Ccircle cx=%2257%22 cy=%2231%22 r=%222.8%22 fill=%22%23090d16%22/%3E%3Ccircle cx=%2246.5%22 cy=%2237%22 r=%224.2%22 fill=%22url(%23goldGrad)%22/%3E%3Ccircle cx=%2253.5%22 cy=%2237%22 r=%224.2%22 fill=%22url(%23goldGrad)%22/%3E%3Cellipse cx=%2250%22 cy=%2266%22 rx=%2226%22 ry=%2223%22 fill=%22url(%23goldGrad)%22/%3E%3Ccircle cx=%2225%22 cy=%2254%22 r=%226.5%22 fill=%22url(%23goldGrad)%22/%3E%3Ccircle cx=%2275%22 cy=%2254%22 r=%226.5%22 fill=%22url(%23goldGrad)%22/%3E%3Cellipse cx=%2233%22 cy=%2286%22 rx=%226.5%22 ry=%225%22 fill=%22url(%23goldGrad)%22/%3E%3Cellipse cx=%2267%22 cy=%2286%22 rx=%226.5%22 ry=%225%22 fill=%22url(%23goldGrad)%22/%3E%3Ctext x=%2250%22 y=%2275%22 text-anchor=%22middle%22 font-family=%22Inter,Arial,sans-serif%22 font-weight=%22900%22 font-size=%2227%22 fill=%22%23271705%22%3E%24%3C/text%3E%3C/svg%3E';"
+                    />
+                </div>
+            </article>
+
+        </main>
+
+        <!-- Minimal Footer -->
+        <footer class="mt-14 pt-6 border-t border-slate-800/80 text-center text-xs text-slate-500">
+            <p>Desiree C. Michael, M.S., M.A. • Digital Leadership Curriculum Vitae</p>
+        </footer>
+    </div>
+
+    <!-- Interactive Card Accordion Script -->
+    <script>
+        function toggleCard(cardElement) {
+            cardElement.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
