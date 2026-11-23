@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You — Interactive Lotus Card</title>
+    <!-- Custom Lotus Browser Tab Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='w' cx='50%25' cy='55%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%233be8dc'/%3E%3Cstop offset='65%25' stop-color='%230e8a94'/%3E%3Cstop offset='100%25' stop-color='%23043b47'/%3E%3C/radialGradient%3E%3ClinearGradient id='p1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ff94bd'/%3E%3Cstop offset='100%25' stop-color='%23c41e5c'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffd4e5'/%3E%3Cstop offset='75%25' stop-color='%23ff6b9b'/%3E%3Cstop offset='100%25' stop-color='%23f59e0b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23w)'/%3E%3Cellipse cx='32' cy='41' rx='26' ry='13' fill='none' stroke='%2399fff5' stroke-opacity='0.35' stroke-width='1.2'/%3E%3Cpath d='M32 40 L54 37 A23 11 0 1 0 52 44 Z' fill='%23085c52'/%3E%3Cg transform='translate(32,38)'%3E%3Cpath d='M0 3 C-9 5 -23 4 -26 -2 C-20 -6 -8 -3 0 3 Z' fill='url(%23p1)'/%3E%3Cpath d='M0 3 C9 5 23 4 26 -2 C20 -6 8 -3 0 3 Z' fill='url(%23p1)'/%3E%3Cpath d='M0 4 C-6 8 -18 9 -22 5 C-17 0 -6 0 0 4 Z' fill='url(%23p1)'/%3E%3Cpath d='M0 4 C6 8 18 9 22 5 C17 0 6 0 0 4 Z' fill='url(%23p1)'/%3E%3Cpath d='M0 2 C-9 -3 -20 -11 -19 -18 C-13 -17 -5 -8 0 2 Z' fill='url(%23p1)'/%3E%3Cpath d='M0 2 C9 -3 20 -11 19 -18 C13 -17 5 -8 0 2 Z' fill='url(%23p1)'/%3E%3Cpath d='M0 1 C-6 -7 -11 -19 -9 -25 C-3 -21 -1 -10 0 1 Z' fill='url(%23p1)'/%3E%3Cpath d='M0 1 C6 -7 11 -19 9 -25 C3 -21 1 -10 0 1 Z' fill='url(%23p1)'/%3E%3Cpath d='M0 1 C-5 -8 -5 -20 0 -27 C5 -20 5 -8 0 1 Z' fill='url(%23p2)'/%3E%3Cpath d='M0 2 C-6 -3 -10 -12 -8 -18 C-4 -14 -1 -6 0 2 Z' fill='url(%23p2)'/%3E%3Cpath d='M0 2 C6 -3 10 -12 8 -18 C4 -14 1 -6 0 2 Z' fill='url(%23p2)'/%3E%3Ccircle cx='0' cy='-5' r='3' fill='%23fde047'/%3E%3Cpath d='M0 4 C-4 9 -3 13 0 14 C3 13 4 9 0 4 Z' fill='url(%23p2)'/%3E%3C/g%3E%3C/svg%3E">
+    <!-- Google Fonts: Playfair Display, Lora, and Inter for editorial typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --water-deep: #04333d;
+            --water-mid: #086875;
+            --water-glow: #18b8b3;
+            --water-bright: #5ce8dc;
+            --paper-base: #fcfaf5;
+            --paper-inner: #f7f3e8;
+            --ink-primary: #1a2c30;
+            --ink-secondary: #4a6368;
+            --accent-gold: #c9973e;
+            --accent-lotus: #e34c7a;
+            --card-width: min(440px, 88vw);
+            --card-height: min(600px, 76vh);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 50% 35%, #0e3842 0%, #061b22 65%, #030e12 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #f0f7f8;
+            overflow-x: hidden;
+            position: relative;
+            padding: 1.5rem 1rem 4.5rem;
+        }
+
+        /* Ambient background glow behind the card */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(24, 184, 179, 0.14), transparent 55%),
+                radial-gradient(circle at 20% 80%, rgba(227, 76, 122, 0.06), transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 3D Perspective Stage */
+        .stage {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 2200px;
+            margin: auto 0;
+        }
+
+        /* The Card Wrapper shifts right on desktop when opened so the spread centers visually */
+        .card-container {
+            position: relative;
+            width: var(--card-width);
+            height: var(--card-height);
+            transform-style: preserve-3d;
+            transition: transform 1.05s cubic-bezier(0.28, 0.84, 0.34, 1);
+            cursor: pointer;
+        }
+
+        @media (min-width: 960px) {
+            .card-container.is-open {
+                transform: translateX(50%);
+            }
+        }
+
+        /* Subtle hover tilt when closed */
+        @media (hover: hover) {
+            .card-container:not(.is-open):hover {
+                transform: translateY(-6px) rotateX(2deg) rotateY(-3deg);
+            }
+        }
+
+        /* Shared Card Leaf Styling */
+        .card-leaf {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            box-shadow:
+                0 25px 60px -12px rgba(0, 0, 0, 0.65),
+                0 8px 24px -6px rgba(4, 51, 61, 0.5);
+        }
+
+        /* ---------------- FRONT COVER (Hinged on Left) ---------------- */
+        .card-front-hinge {
+            position: absolute;
+            inset: 0;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            transition: transform 1.15s cubic-bezier(0.32, 0.82, 0.32, 1);
+            z-index: 10;
+        }
+
+        .card-container.is-open .card-front-hinge {
+            transform: rotateY(-174deg);
+        }
+
+        .card-face {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            overflow: hidden;
+        }
+
+        /* Front Exterior: Crystal Bluish-Green Bottom-Lit Water */
+        .front-exterior {
+            background:
+                radial-gradient(ellipse at 50% 62%, rgba(112, 245, 232, 0.55) 0%, rgba(22, 179, 173, 0.38) 34%, rgba(7, 102, 117, 0.85) 72%, #032b36 100%),
+                linear-gradient(175deg, #064d59 0%, #0b8a94 45%, #16c7bd 75%, #053945 100%);
+            border: 1px solid rgba(130, 247, 236, 0.28);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 1.5rem;
+            user-select: none;
+        }
+
+        /* Canvas for live underwater caustics, light motes & interactive ripples */
+        #water-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 1;
+        }
+
+        /* Underwater bottom-lit glow overlay */
+        .water-luminance {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 56%, rgba(168, 255, 246, 0.42) 0%, rgba(36, 214, 202, 0.14) 42%, transparent 72%),
+                linear-gradient(to top, rgba(3, 28, 36, 0.55) 0%, transparent 32%, rgba(145, 255, 247, 0.12) 100%);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            z-index: 2;
+            animation: poolPulse 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes poolPulse {
+            0% { opacity: 0.78; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.04); }
+        }
+
+        /* Subtle spine crease shadow on the left edge */
+        .spine-crease {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 18px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.28), rgba(255, 255, 255, 0.08) 40%, transparent);
+            z-index: 6;
+            pointer-events: none;
+        }
+
+        /* Cover Top Header */
+        .cover-header {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            margin-top: 0.4rem;
+            pointer-events: none;
+        }
+
+        .cover-eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(224, 255, 252, 0.88);
+            text-shadow: 0 2px 10px rgba(2, 34, 41, 0.6);
+            margin-bottom: 0.45rem;
+            font-weight: 500;
+        }
+
+        .cover-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.9rem, 5vw, 2.55rem);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #ffffff;
+            text-shadow:
+                0 2px 18px rgba(3, 44, 54, 0.65),
+                0 0 30px rgba(132, 255, 244, 0.35);
+        }
+
+        /* Floating Colorful Lotus Container */
+        .lotus-wrapper {
+            position: relative;
+            z-index: 5;
+            width: min(275px, 68%);
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: lotusFloat 5.5s ease-in-out infinite;
+            filter: drop-shadow(0 18px 22px rgba(2, 33, 40, 0.58));
+            pointer-events: none;
+        }
+
+        /* Water refraction ring directly beneath the lotus */
+        .lotus-water-shadow {
+            position: absolute;
+            width: 82%;
+            height: 36%;
+            bottom: 12%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, rgba(1, 29, 36, 0.58) 0%, rgba(16, 179, 173, 0.25) 55%, transparent 75%);
+            animation: shadowBreathe 5.5s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes lotusFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(-1.2deg) scale(1);
+            }
+            50% {
+                transform: translateY(-9px) rotate(1.4deg) scale(1.02);
+            }
+        }
+
+        @keyframes shadowBreathe {
+            0%, 100% { transform: scale(1); opacity: 0.85; }
+            50% { transform: scale(0.92); opacity: 0.65; }
+        }
+
+        /* Interactive Open Prompt Pill */
+        .open-prompt {
+            position: relative;
+            z-index: 5;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.62rem 1.3rem;
+            border-radius: 999px;
+            background: rgba(5, 45, 54, 0.52);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(152, 255, 245, 0.36);
+            color: #e9fffd;
+            font-size: 0.84rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            box-shadow: 0 8px 20px rgba(2, 26, 33, 0.35);
+            transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .card-container:hover .open-prompt {
+            background: rgba(10, 74, 87, 0.72);
+            border-color: rgba(180, 255, 248, 0.65);
+            transform: translateY(-2px);
+        }
+
+        .open-prompt svg {
+            width: 15px;
+            height: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-container:hover .open-prompt svg {
+            transform: translateX(3px);
+        }
+
+        /* ---------------- INSIDE LEFT PAGE (Back of Front Cover) ---------------- */
+        .front-interior {
+            transform: rotateY(180deg);
+            background:
+                radial-gradient(circle at 80% 20%, rgba(24, 184, 179, 0.07), transparent 55%),
+                radial-gradient(circle at 20% 85%, rgba(227, 76, 122, 0.06), transparent 50%),
+                var(--paper-inner);
+            border: 1px solid rgba(185, 172, 148, 0.45);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2.25rem;
+            text-align: center;
+            color: var(--ink-secondary);
+        }
+
+        .front-interior::after {
+            content: '';
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(201, 151, 62, 0.26);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .inner-left-emblem {
+            width: 96px;
+            height: 96px;
+            margin-bottom: 1.25rem;
+            opacity: 0.9;
+        }
+
+        .inner-left-quote {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 1.08rem;
+            line-height: 1.65;
+            color: #355257;
+            max-width: 260px;
+        }
+
+        .inner-left-divider {
+            width: 44px;
+            height: 1.5px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+            margin: 1.1rem auto;
+        }
+
+        .inner-left-sub {
+            font-size: 0.74rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #7c8e91;
+        }
+
+        /* ---------------- INSIDE RIGHT PAGE (Main Message Base) ---------------- */
+        .card-base-right {
+            background:
+                radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.9), transparent 50%),
+                linear-gradient(135deg, #fdfbf7 0%, #f7f2e7 100%);
+            border: 1px solid rgba(190, 177, 153, 0.5);
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: clamp(1.6rem, 4vw, 2.5rem);
+            color: var(--ink-primary);
+            cursor: default;
+            overflow: hidden;
+        }
+
+        /* Subtle paper grain & double frame */
+        .card-base-right::before {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border: 1px solid rgba(201, 151, 62, 0.34);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        /* Soft spine shadow on the inside right page */
+        .inner-spine-shadow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 24px;
+            background: linear-gradient(to right, rgba(35, 28, 16, 0.11), transparent);
+            pointer-events: none;
+        }
+
+        .message-header {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(201, 151, 62, 0.25);
+            padding-bottom: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .message-salutation {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.25rem, 3.2vw, 1.5rem);
+            font-weight: 600;
+            color: #0e4d59;
+            letter-spacing: 0.01em;
+        }
+
+        .mini-lotus-badge {
+            width: 34px;
+            height: 34px;
+            flex-shrink: 0;
+        }
+
+        .message-body-scroll {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto;
+            padding-right: 0.2rem;
+        }
+
+        .message-text {
+            font-family: 'Lora', Georgia, serif;
+            font-size: clamp(1.02rem, 2.4vw, 1.16rem);
+            line-height: 1.82;
+            color: #1f3337;
+            font-weight: 400;
+            white-space: pre-wrap;
+        }
+
+        .message-footer {
+            position: relative;
+            z-index: 2;
+            margin-top: 1.1rem;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(201, 151, 62, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .sign-off {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #0e4d59;
+        }
+
+        .card-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.45rem 0.85rem;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-edit {
+            background: rgba(14, 77, 89, 0.08);
+            color: #0e4d59;
+            border-color: rgba(14, 77, 89, 0.2);
+        }
+
+        .btn-edit:hover {
+            background: rgba(14, 77, 89, 0.15);
+        }
+
+        .btn-close {
+            background: #0e4d59;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(14, 77, 89, 0.22);
+        }
+
+        .btn-close:hover {
+            background: #093942;
+            transform: translateY(-1px);
+        }
+
+        /* ---------------- EDIT MESSAGE MODAL ---------------- */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 16, 20, 0.76);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 50;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .modal-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-dialog {
+            background: #fcfaf5;
+            color: var(--ink-primary);
+            width: 100%;
+            max-width: 520px;
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(201, 151, 62, 0.4);
+            transform: translateY(12px) scale(0.98);
+            transition: transform 0.25s ease;
+        }
+
+        .modal-backdrop.active .modal-dialog {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            color: #0e4d59;
+            margin-bottom: 0.35rem;
+        }
+
+        .modal-desc {
+            font-size: 0.85rem;
+            color: var(--ink-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .field-group {
+            margin-bottom: 0.9rem;
+        }
+
+        .field-label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #3d565b;
+            margin-bottom: 0.35rem;
+        }
+
+        .field-input,
+        .field-textarea {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #cbd5d1;
+            background: #ffffff;
+            padding: 0.7rem 0.85rem;
+            font-family: 'Lora', Georgia, serif;
+            font-size: 0.98rem;
+            color: #1a2c30;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .field-input:focus,
+        .field-textarea:focus {
+            outline: none;
+            border-color: #128996;
+            box-shadow: 0 0 0 3px rgba(18, 137, 150, 0.16);
+        }
+
+        .field-textarea {
+            min-height: 155px;
+            line-height: 1.65;
+            resize: vertical;
+        }
+
+        .modal-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .modal-footer-right {
+            display: flex;
+            gap: 0.55rem;
+            margin-left: auto;
+        }
+
+        .btn-modal {
+            padding: 0.55rem 1.05rem;
+            border-radius: 9px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .btn-reset {
+            background: transparent;
+            color: #64787c;
+            border-color: #d6dedc;
+        }
+
+        .btn-reset:hover {
+            background: #f0f4f3;
+            color: #1a2c30;
+        }
+
+        .btn-cancel {
+            background: #eef2f1;
+            color: #2c4247;
+        }
+
+        .btn-cancel:hover {
+            background: #e1e8e6;
+        }
+
+        .btn-save {
+            background: #0e4d59;
+            color: #ffffff;
+        }
+
+        .btn-save:hover {
+            background: #0a3b45;
+        }
+
+        /* Subtle Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(7, 46, 54, 0.92);
+            color: #e8fffd;
+            border: 1px solid rgba(114, 245, 232, 0.35);
+            padding: 0.55rem 1.15rem;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 60;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Subtle bottom hint */
+        .bottom-hint {
+            position: fixed;
+            bottom: 0.9rem;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.76rem;
+            color: rgba(190, 232, 230, 0.55);
+            letter-spacing: 0.04em;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .card-container,
+            .card-front-hinge,
+            .lotus-wrapper,
+            .water-luminance {
+                animation: none !important;
+                transition-duration: 0.1s !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="stage">
+        <div class="card-container" id="cardContainer" role="button" tabindex="0" aria-label="Interactive Thank You Card. Press Enter or Click to open.">
+            
+            <!-- FRONT COVER LEAF (Hinged on Left) -->
+            <div class="card-front-hinge" id="frontHinge">
+                
+                <!-- Front Exterior: Crystal Natural Pool Water + Vibrant Lotus -->
+                <div class="card-face front-exterior" id="frontCover">
+                    <canvas id="water-canvas"></canvas>
+                    <div class="water-luminance"></div>
+                    <div class="spine-crease"></div>
+
+                    <header class="cover-header">
+                        <p class="cover-eyebrow">With Deep Gratitude</p>
+                        <h1 class="cover-title">Thank You</h1>
+                    </header>
+
+                    <!-- Vibrant Multi-Layered Lotus SVG -->
+                    <div class="lotus-wrapper" aria-hidden="true">
+                        <div class="lotus-water-shadow"></div>
+                        <svg viewBox="0 0 320 320" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <!-- Lily Pad / Water Leaf Gradients -->
+                                <radialGradient id="padGrad" cx="45%" cy="45%" r="55%">
+                                    <stop offset="0%" stop-color="#2bb89b"/>
+                                    <stop offset="55%" stop-color="#117a6b"/>
+                                    <stop offset="100%" stop-color="#074a44"/>
+                                </radialGradient>
+                                <linearGradient id="padRim" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#6ee7cf" stop-opacity="0.7"/>
+                                    <stop offset="100%" stop-color="#09423c" stop-opacity="0.2"/>
+                                </linearGradient>
+
+                                <!-- Outer Back Petals (Deep Magenta to Coral Pink) -->
+                                <linearGradient id="petalOuter" x1="50%" y1="0%" x2="50%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff9ec2"/>
+                                    <stop offset="42%" stop-color="#f04e86"/>
+                                    <stop offset="85%" stop-color="#b81d58"/>
+                                    <stop offset="100%" stop-color="#7d0f3a"/>
+                                </linearGradient>
+
+                                <!-- Mid Layer Petals (Luminous Rose & Sunset Coral) -->
+                                <linearGradient id="petalMid" x1="50%" y1="0%" x2="50%" y2="100%">
+                                    <stop offset="0%" stop-color="#ffd1e3"/>
+                                    <stop offset="35%" stop-color="#ff749c"/>
+                                    <stop offset="78%" stop-color="#e3366e"/>
+                                    <stop offset="100%" stop-color="#a61748"/>
+                                </linearGradient>
+
+                                <!-- Inner Crown Petals (Soft Blush to Warm Apricot/Gold Base) -->
+                                <linearGradient id="petalInner" x1="50%" y1="0%" x2="50%" y2="100%">
+                                    <stop offset="0%" stop-color="#fff5f8"/>
+                                    <stop offset="40%" stop-color="#ffadc6"/>
+                                    <stop offset="80%" stop-color="#ff7a8a"/>
+                                    <stop offset="100%" stop-color="#f59e0b"/>
+                                </linearGradient>
+
+                                <!-- Golden Stamen Center Glow -->
+                                <radialGradient id="goldCenter" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#fffbeb"/>
+                                    <stop offset="35%" stop-color="#fde047"/>
+                                    <stop offset="75%" stop-color="#f59e0b"/>
+                                    <stop offset="100%" stop-color="#b45309"/>
+                                </radialGradient>
+
+                                <filter id="softPetalGlow" x="-15%" y="-15%" width="130%" height="130%">
+                                    <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#4a0721" flood-opacity="0.32"/>
+                                </filter>
+                            </defs>
+
+                            <!-- Subtle Water Ripples Around Pad -->
+                            <ellipse cx="160" cy="186" rx="138" ry="68" fill="none" stroke="rgba(182, 255, 248, 0.35)" stroke-width="1.5"/>
+                            <ellipse cx="160" cy="186" rx="122" ry="58" fill="none" stroke="rgba(182, 255, 248, 0.22)" stroke-width="1"/>
+
+                            <!-- Emerald Lily Pad Base -->
+                            <g transform="translate(160, 184)">
+                                <path d="M 0,0 L 106,-14 A 110,56 0 1,0 98,22 Z" fill="url(#padGrad)" stroke="url(#padRim)" stroke-width="1.8"/>
+                                <!-- Subtle leaf veins -->
+                                <path d="M -8,2 L -88,-16 M -8,2 L -74,26 M -8,2 L -16,46 M -8,2 L 48,38 M -8,2 L 42,-36" stroke="rgba(134, 247, 224, 0.24)" stroke-width="1.2" stroke-linecap="round"/>
+                            </g>
+
+                            <!-- LOTUS FLOWER BLOOM -->
+                            <g transform="translate(160, 166)" filter="url(#softPetalGlow)">
+                                
+                                <!-- Layer 1: Wide Spread Base Petals -->
+                                <path d="M 0,18 C -38,26 -108,22 -124,-6 C -94,-24 -36,-12 0,18 Z" fill="url(#petalOuter)"/>
+                                <path d="M 0,18 C 38,26 108,22 124,-6 C 94,-24 36,-12 0,18 Z" fill="url(#petalOuter)"/>
+                                <path d="M 0,22 C -26,38 -82,46 -104,26 C -80,4 -30,4 0,22 Z" fill="url(#petalOuter)"/>
+                                <path d="M 0,22 C 26,38 82,46 104,26 C 80,4 30,4 0,22 Z" fill="url(#petalOuter)"/>
+                                <!-- Front drooping apron petals -->
+                                <path d="M 0,22 C -22,42 -56,52 -66,38 C -52,20 -20,14 0,22 Z" fill="url(#petalMid)"/>
+                                <path d="M 0,22 C 22,42 56,52 66,38 C 52,20 20,14 0,22 Z" fill="url(#petalMid)"/>
+                                <path d="M 0,20 C -18,44 -14,58 0,62 C 14,58 18,44 0,20 Z" fill="url(#petalInner)"/>
+
+                                <!-- Layer 2: Back & Side Rising Petals -->
+                                <path d="M 0,12 C -42,-12 -96,-48 -94,-78 C -62,-74 -24,-34 0,12 Z" fill="url(#petalOuter)"/>
+                                <path d="M 0,12 C 42,-12 96,-48 94,-78 C 62,-74 24,-34 0,12 Z" fill="url(#petalOuter)"/>
+                                <path d="M 0,10 C -26,-28 -54,-82 -44,-112 C -18,-92 -6,-42 0,10 Z" fill="url(#petalOuter)"/>
+                                <path d="M 0,10 C 26,-28 54,-82 44,-112 C 18,-92 6,-42 0,10 Z" fill="url(#petalOuter)"/>
+
+                                <!-- Layer 3: Mid-Crown Luminous Pink/Coral Petals -->
+                                <path d="M 0,14 C -36,-2 -76,-34 -72,-62 C -46,-56 -18,-22 0,14 Z" fill="url(#petalMid)"/>
+                                <path d="M 0,14 C 36,-2 76,-34 72,-62 C 46,-56 18,-22 0,14 Z" fill="url(#petalMid)"/>
+                                <path d="M 0,12 C -24,-22 -42,-68 -30,-94 C -10,-74 -2,-32 0,12 Z" fill="url(#petalMid)"/>
+                                <path d="M 0,12 C 24,-22 42,-68 30,-94 C 10,-74 2,-32 0,12 Z" fill="url(#petalMid)"/>
+
+                                <!-- Center Tall Back Petal -->
+                                <path d="M 0,10 C -22,-34 -22,-88 0,-118 C 22,-88 22,-34 0,10 Z" fill="url(#petalMid)"/>
+
+                                <!-- Layer 4: Inner Cupped Petals Framing Golden Heart -->
+                                <path d="M 0,14 C -24,-6 -44,-44 -34,-68 C -16,-54 -6,-20 0,14 Z" fill="url(#petalInner)"/>
+                                <path d="M 0,14 C 24,-6 44,-44 34,-68 C 16,-54 6,-20 0,14 Z" fill="url(#petalInner)"/>
+                                <path d="M 0,14 C -16,-22 -16,-62 0,-84 C 16,-62 16,-22 0,14 Z" fill="url(#petalInner)"/>
+
+                                <!-- Golden Radiant Receptacle & Stamens -->
+                                <ellipse cx="0" cy="-14" rx="18" ry="12" fill="url(#goldCenter)"/>
+                                <g stroke="#fde047" stroke-width="1.8" stroke-linecap="round">
+                                    <line x1="-14" y1="-14" x2="-22" y2="-28"/>
+                                    <line x1="-9" y1="-17" x2="-14" y2="-33"/>
+                                    <line x1="-3" y1="-19" x2="-4" y2="-36"/>
+                                    <line x1="3" y1="-19" x2="4" y2="-36"/>
+                                    <line x1="9" y1="-17" x2="14" y2="-33"/>
+                                    <line x1="14" y1="-14" x2="22" y2="-28"/>
+                                </g>
+                                <g fill="#fffbeb">
+                                    <circle cx="-22" cy="-29" r="2.2"/>
+                                    <circle cx="-14" cy="-34" r="2.2"/>
+                                    <circle cx="-4" cy="-37" r="2.4"/>
+                                    <circle cx="4" cy="-37" r="2.4"/>
+                                    <circle cx="14" cy="-34" r="2.2"/>
+                                    <circle cx="22" cy="-29" r="2.2"/>
+                                </g>
+
+                                <!-- Front Cupped Petals Embracing the Center -->
+                                <path d="M 0,18 C -20,4 -32,-22 -22,-38 C -10,-28 -4,-6 0,18 Z" fill="url(#petalInner)" opacity="0.95"/>
+                                <path d="M 0,18 C 20,4 32,-22 22,-38 C 10,-28 4,-6 0,18 Z" fill="url(#petalInner)" opacity="0.95"/>
+                                <path d="M 0,20 C -11,-2 -10,-24 0,-34 C 10,-24 11,-2 0,20 Z" fill="url(#petalInner)"/>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="open-prompt">
+                        <span>Tap to Open Card</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Inside Left Page (Visible when opened on desktop) -->
+                <div class="card-face front-interior" aria-hidden="true">
+                    <svg class="inner-left-emblem" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="#c9973e" stroke-opacity="0.35" stroke-width="1"/>
+                        <circle cx="60" cy="60" r="46" fill="none" stroke="#0e6e78" stroke-opacity="0.2" stroke-width="0.75" stroke-dasharray="3 3"/>
+                        <g transform="translate(60, 68)">
+                            <path d="M 0,6 C -18,-6 -34,-26 -30,-40 C -18,-34 -8,-14 0,6 Z" fill="#f2749b" opacity="0.85"/>
+                            <path d="M 0,6 C 18,-6 34,-26 30,-40 C 18,-34 8,-14 0,6 Z" fill="#f2749b" opacity="0.85"/>
+                            <path d="M 0,6 C -10,-16 -10,-40 0,-52 C 10,-40 10,-16 0,6 Z" fill="#e34c7a"/>
+                            <path d="M 0,8 C -16,12 -38,10 -44,-2 C -32,-10 -14,-4 0,8 Z" fill="#189aa1" opacity="0.75"/>
+                            <path d="M 0,8 C 16,12 38,10 44,-2 C 32,-10 14,-4 0,8 Z" fill="#189aa1" opacity="0.75"/>
+                            <circle cx="0" cy="-12" r="4" fill="#e6a83a"/>
+                        </g>
+                    </svg>
+                    <p class="inner-left-quote">“Rooted in gratitude, growing in service to our community.”</p>
+                    <div class="inner-left-divider"></div>
+                    <span class="inner-left-sub">A Note of Appreciation</span>
+                </div>
+
+            </div>
+
+            <!-- INSIDE RIGHT PAGE (Message Spread) -->
+            <div class="card-leaf card-base-right" id="insideRight">
+                <div class="inner-spine-shadow"></div>
+
+                <div class="message-header">
+                    <h2 class="message-salutation" id="displaySalutation">With Sincere Thanks,</h2>
+                    <svg class="mini-lotus-badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g transform="translate(32, 42)">
+                            <path d="M 0,4 C -12,-4 -24,-18 -20,-28 C -12,-24 -4,-10 0,4 Z" fill="#ff749c"/>
+                            <path d="M 0,4 C 12,-4 24,-18 20,-28 C 12,-24 4,-10 0,4 Z" fill="#ff749c"/>
+                            <path d="M 0,4 C -7,-12 -7,-28 0,-36 C 7,-28 7,-12 0,4 Z" fill="#e3366e"/>
+                            <circle cx="0" cy="-8" r="3" fill="#f59e0b"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="message-body-scroll">
+                    <p class="message-text" id="displayMessage">Thank you both for your time and efforts; I look forward to learning more about our community and how I can contribute best. Ideally, I would love to open my own high-tech school for our community that is not grade-banded but performance-bands and focused on</p>
+                </div>
+
+                <div class="message-footer">
+                    <span class="sign-off" id="displaySignoff">Warmly,</span>
+                    <div class="card-actions">
+                        <button type="button" class="btn-card btn-edit" id="editBtn" title="Customize message before deploying">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 20h9"/>
+                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                            </svg>
+                            <span>Edit Note</span>
+                        </button>
+                        <button type="button" class="btn-card btn-close" id="closeBtn">
+                            <span>Close Card</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <p class="bottom-hint">Move cursor across the water for ripples &bull; Click card to open</p>
+
+    <!-- Customize Message Modal -->
+    <div class="modal-backdrop" id="editModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-dialog">
+            <h3 class="modal-title" id="modalTitle">Customize Your Card Message</h3>
+            <p class="modal-desc">Complete or personalize your message below. Changes save locally in your browser so you can preview them right away.</p>
+            
+            <div class="field-group">
+                <label class="field-label" for="inputSalutation">Greeting</label>
+                <input type="text" id="inputSalutation" class="field-input" maxlength="60">
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="inputMessage">Message</label>
+                <textarea id="inputMessage" class="field-textarea"></textarea>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="inputSignoff">Sign-off / Name</label>
+                <input type="text" id="inputSignoff" class="field-input" maxlength="60">
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-modal btn-reset" id="resetDefaultBtn">Restore Default</button>
+                <div class="modal-footer-right">
+                    <button type="button" class="btn-modal btn-cancel" id="cancelEditBtn">Cancel</button>
+                    <button type="button" class="btn-modal btn-save" id="saveEditBtn">Apply Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        (function () {
+            /* ----------------------------------------------------------------
+               1. CARD OPEN / CLOSE INTERACTION
+            ---------------------------------------------------------------- */
+            const cardContainer = document.getElementById('cardContainer');
+            const closeBtn = document.getElementById('closeBtn');
+            const editBtn = document.getElementById('editBtn');
+            let isOpen = false;
+
+            function openCard() {
+                if (!isOpen) {
+                    isOpen = true;
+                    cardContainer.classList.add('is-open');
+                }
+            }
+
+            function closeCard(e) {
+                if (e) e.stopPropagation();
+                if (isOpen) {
+                    isOpen = false;
+                    cardContainer.classList.remove('is-open');
+                }
+            }
+
+            cardContainer.addEventListener('click', function (e) {
+                // Only open if clicking the front cover or card shell when closed
+                if (!isOpen) {
+                    openCard();
+                } else if (e.target.closest('.front-interior')) {
+                    // Clicking the inside-left flap also folds it closed smoothly
+                    closeCard();
+                }
+            });
+
+            cardContainer.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    if (document.activeElement === cardContainer) {
+                        e.preventDefault();
+                        isOpen ? closeCard() : openCard();
+                    }
+                } else if (e.key === 'Escape' && isOpen) {
+                    closeCard();
+                }
+            });
+
+            closeBtn.addEventListener('click', closeCard);
+
+            /* ----------------------------------------------------------------
+               2. EDIT MESSAGE MODAL & LOCAL PERSISTENCE
+            ---------------------------------------------------------------- */
+            const DEFAULT_CONTENT = {
+                salutation: 'With Sincere Thanks,',
+                message: 'Thank you both for your time and efforts; I look forward to learning more about our community and how I can contribute best. Ideally, I would love to open my own high-tech school for our community that is not grade-banded but performance-bands and focused on',
+                signoff: 'Warmly,'
+            };
+
+            const STORAGE_KEY = 'lotus_thank_you_card_v1';
+            const displaySalutation = document.getElementById('displaySalutation');
+            const displayMessage = document.getElementById('displayMessage');
+            const displaySignoff = document.getElementById('displaySignoff');
+
+            const editModal = document.getElementById('editModal');
+            const inputSalutation = document.getElementById('inputSalutation');
+            const inputMessage = document.getElementById('inputMessage');
+            const inputSignoff = document.getElementById('inputSignoff');
+            const cancelEditBtn = document.getElementById('cancelEditBtn');
+            const saveEditBtn = document.getElementById('saveEditBtn');
+            const resetDefaultBtn = document.getElementById('resetDefaultBtn');
+            const toastEl = document.getElementById('toast');
+
+            function showToast(msg) {
+                toastEl.textContent = msg;
+                toastEl.classList.add('show');
+                clearTimeout(showToast._timer);
+                showToast._timer = setTimeout(() => toastEl.classList.remove('show'), 2600);
+            }
+
+            function loadSavedMessage() {
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    if (!raw) return;
+                    const parsed = JSON.parse(raw);
+                    if (parsed.salutation) displaySalutation.textContent = parsed.salutation;
+                    if (parsed.message) displayMessage.textContent = parsed.message;
+                    if (parsed.signoff) displaySignoff.textContent = parsed.signoff;
+                } catch (_) {
+                    // Fallback gracefully to default text
+                }
+            }
+
+            loadSavedMessage();
+
+            editBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                inputSalutation.value = displaySalutation.textContent;
+                inputMessage.value = displayMessage.textContent;
+                inputSignoff.value = displaySignoff.textContent;
+                editModal.classList.add('active');
+                inputMessage.focus();
+            });
+
+            function closeModal() {
+                editModal.classList.remove('active');
+            }
+
+            cancelEditBtn.addEventListener('click', closeModal);
+            editModal.addEventListener('click', function (e) {
+                if (e.target === editModal) closeModal();
+            });
+
+            saveEditBtn.addEventListener('click', function () {
+                const updated = {
+                    salutation: inputSalutation.value.trim() || DEFAULT_CONTENT.salutation,
+                    message: inputMessage.value.trim() || DEFAULT_CONTENT.message,
+                    signoff: inputSignoff.value.trim() || DEFAULT_CONTENT.signoff
+                };
+                displaySalutation.textContent = updated.salutation;
+                displayMessage.textContent = updated.message;
+                displaySignoff.textContent = updated.signoff;
+                try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+                } catch (_) {}
+                closeModal();
+                showToast('Card message updated');
+            });
+
+            resetDefaultBtn.addEventListener('click', function () {
+                inputSalutation.value = DEFAULT_CONTENT.salutation;
+                inputMessage.value = DEFAULT_CONTENT.message;
+                inputSignoff.value = DEFAULT_CONTENT.signoff;
+                try {
+                    localStorage.removeItem(STORAGE_KEY);
+                } catch (_) {}
+                showToast('Default message restored');
+            });
+
+            /* ----------------------------------------------------------------
+               3. CRYSTAL BLUISH-GREEN BOTTOM-LIT WATER SIMULATION (CANVAS)
+            ---------------------------------------------------------------- */
+            const canvas = document.getElementById('water-canvas');
+            const frontCover = document.getElementById('frontCover');
+            const ctx = canvas.getContext('2d');
+
+            let width = 0;
+            let height = 0;
+            let dpr = 1;
+
+            // Interactive water ripples spawned on pointer move / tap
+            const ripples = [];
+            // Rising underwater light motes / micro-bubbles
+            const motes = [];
+            // Shimmering caustic light cells
+            const caustics = [];
+
+            function resizeCanvas() {
+                const rect = frontCover.getBoundingClientRect();
+                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                width = Math.max(1, rect.width);
+                height = Math.max(1, rect.height);
+                canvas.width = Math.floor(width * dpr);
+                canvas.height = Math.floor(height * dpr);
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+
+            function initWaterParticles() {
+                motes.length = 0;
+                for (let i = 0; i < 28; i++) {
+                    motes.push({
+                        x: Math.random() * 450,
+                        y: Math.random() * 620,
+                        r: 0.9 + Math.random() * 2.1,
+                        vy: 0.18 + Math.random() * 0.35,
+                        drift: Math.random() * Math.PI * 2,
+                        alpha: 0.25 + Math.random() * 0.55
+                    });
+                }
+
+                caustics.length = 0;
+                for (let i = 0; i < 16; i++) {
+                    caustics.push({
+                        cx: Math.random(),
+                        cy: Math.random(),
+                        rx: 45 + Math.random() * 75,
+                        ry: 28 + Math.random() * 48,
+                        phase: Math.random() * Math.PI * 2,
+                        speed: 0.008 + Math.random() * 0.01,
+                        rot: Math.random() * Math.PI
+                    });
+                }
+            }
+
+            function addRipple(x, y, maxR = 95, strength = 0.55) {
+                if (ripples.length > 18) ripples.shift();
+                ripples.push({
+                    x,
+                    y,
+                    r: 4,
+                    maxR,
+                    alpha: strength
+                });
+            }
+
+            let lastPointerRipple = 0;
+            frontCover.addEventListener('pointermove', function (e) {
+                if (isOpen) return;
+                const now = performance.now();
+                if (now - lastPointerRipple < 65) return;
+                lastPointerRipple = now;
+                const rect = frontCover.getBoundingClientRect();
+                addRipple(e.clientX - rect.left, e.clientY - rect.top, 75, 0.42);
+            });
+
+            frontCover.addEventListener('pointerdown', function (e) {
+                const rect = frontCover.getBoundingClientRect();
+                addRipple(e.clientX - rect.left, e.clientY - rect.top, 135, 0.78);
+            });
+
+            // Gentle ambient ripples around the floating lotus
+            let lastAmbientRipple = 0;
+
+            function renderWater(time) {
+                ctx.clearRect(0, 0, width, height);
+
+                // 1. Deep-to-luminous bottom-lit crystal water gradient
+                const baseGrad = ctx.createRadialGradient(
+                    width * 0.5, height * 0.58, width * 0.04,
+                    width * 0.5, height * 0.52, Math.max(width, height) * 0.78
+                );
+                baseGrad.addColorStop(0, '#3be8dc');
+                baseGrad.addColorStop(0.32, '#14a6ab');
+                baseGrad.addColorStop(0.68, '#086373');
+                baseGrad.addColorStop(1, '#032b36');
+                ctx.fillStyle = baseGrad;
+                ctx.fillRect(0, 0, width, height);
+
+                // 2. Animated underwater caustic light webs (lit from the bottom)
+                ctx.save();
+                ctx.globalCompositeOperation = 'screen';
+                for (let i = 0; i < caustics.length; i++) {
+                    const c = caustics[i];
+                    c.phase += c.speed;
+                    const x = c.cx * width + Math.sin(c.phase) * 24;
+                    const y = c.cy * height + Math.cos(c.phase * 0.85) * 20;
+                    const pulse = 0.75 + 0.25 * Math.sin(c.phase * 1.4);
+
+                    const g = ctx.createRadialGradient(x, y, 2, x, y, c.rx * pulse);
+                    g.addColorStop(0, 'rgba(175, 255, 248, 0.20)');
+                    g.addColorStop(0.55, 'rgba(42, 219, 208, 0.08)');
+                    g.addColorStop(1, 'rgba(12, 130, 140, 0)');
+
+                    ctx.fillStyle = g;
+                    ctx.beginPath();
+                    ctx.ellipse(x, y, c.rx * pulse, c.ry * pulse, c.rot + Math.sin(c.phase) * 0.15, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // 3. Shimmering wave lines across water surface
+                ctx.strokeStyle = 'rgba(195, 255, 250, 0.13)';
+                ctx.lineWidth = 1.2;
+                for (let row = 0; row < 7; row++) {
+                    const baseY = height * (0.18 + row * 0.11);
+                    ctx.beginPath();
+                    for (let x = 0; x <= width; x += 14) {
+                        const waveY = baseY + Math.sin(x * 0.025 + time * 0.0014 + row * 1.3) * 5;
+                        if (x === 0) ctx.moveTo(x, waveY);
+                        else ctx.lineTo(x, waveY);
+                    }
+                    ctx.stroke();
+                }
+
+                // 4. Rising underwater light motes / micro-bubbles
+                for (let i = 0; i < motes.length; i++) {
+                    const m = motes[i];
+                    m.y -= m.vy;
+                    m.drift += 0.02;
+                    m.x += Math.sin(m.drift) * 0.28;
+                    if (m.y < -10) {
+                        m.y = height + 10;
+                        m.x = Math.random() * width;
+                    }
+                    ctx.fillStyle = `rgba(215, 255, 252, ${m.alpha})`;
+                    ctx.beginPath();
+                    ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // 5. Ambient ripples radiating gently from beneath the lotus
+                if (!isOpen && time - lastAmbientRipple > 2200) {
+                    lastAmbientRipple = time;
+                    addRipple(width * 0.5, height * 0.56, width * 0.42, 0.34);
+                }
+
+                // 6. Render expanding surface ripples
+                for (let i = ripples.length - 1; i >= 0; i--) {
+                    const rp = ripples[i];
+                    rp.r += 1.05;
+                    rp.alpha *= 0.976;
+
+                    if (rp.r >= rp.maxR || rp.alpha <= 0.015) {
+                        ripples.splice(i, 1);
+                        continue;
+                    }
+
+                    ctx.strokeStyle = `rgba(205, 255, 251, ${rp.alpha})`;
+                    ctx.lineWidth = 1.4;
+                    ctx.beginPath();
+                    ctx.ellipse(rp.x, rp.y, rp.r, rp.r * 0.56, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+
+                    // Secondary inner echo ring
+                    if (rp.r > 18) {
+                        ctx.strokeStyle = `rgba(125, 245, 236, ${rp.alpha * 0.55})`;
+                        ctx.lineWidth = 0.9;
+                        ctx.beginPath();
+                        ctx.ellipse(rp.x, rp.y, rp.r * 0.68, rp.r * 0.38, 0, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                }
+
+                ctx.restore();
+                requestAnimationFrame(renderWater);
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            initWaterParticles();
+            requestAnimationFrame(renderWater);
+        })();
+    </script>
+</body>
+</html>
